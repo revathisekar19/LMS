@@ -11,20 +11,26 @@ import { MatButtonModule } from '@angular/material/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
-import { RegistrationComponent } from './registration/registration.component'
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { RegistrationComponent } from './registration/registration.component';
+import { CourseComponent } from './course/course.component'
 
 
 @NgModule({
   declarations: [
     AppComponent,
    LoginComponent,
-   RegistrationComponent
+   RegistrationComponent,
+   CourseComponent
     ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
     MatButtonModule,
     MatCardModule,
     AppRoutingModule,
