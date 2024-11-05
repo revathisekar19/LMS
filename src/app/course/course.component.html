@@ -1,0 +1,53 @@
+<div class="create-course-wrapper py-5 d-flex justify-content-center align-items-center min-vh-100">
+  <mat-card class="course-card">
+    <mat-card-title>Create Course</mat-card-title>
+    <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Course ID</mat-label>
+        <input matInput formControlName="courseId" placeholder="Enter Course ID" required />
+        <mat-error *ngIf="courseForm.get('courseId')?.invalid && courseForm.get('courseId')?.touched">
+          Course ID is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Course Name</mat-label>
+        <input matInput formControlName="courseName" placeholder="Enter Course Name" required />
+        <mat-error *ngIf="courseForm.get('courseName')?.invalid && courseForm.get('courseName')?.touched">
+          Course name is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Instructor Name</mat-label>
+        <input matInput formControlName="instructorName" placeholder="Enter Instructor Name" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Course Venue</mat-label>
+        <input matInput formControlName="courseVenue" placeholder="Enter Course Venue" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Course Timing</mat-label>
+        <input matInput formControlName="courseTiming" placeholder="Enter Course Timing" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Course Mode</mat-label>
+          <input matInput formControlName="courseTiming" placeholder="Enter Course Mode" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Course Days</mat-label>
+        <input matInput formControlName="courseDays" placeholder="e.g., Mon, Wed, Fri" required />
+      </mat-form-field>
+
+      <div class="button-group">
+        <button mat-raised-button style="background-color: #F06548; color: white;" type="submit" [disabled]="courseForm.invalid">Cancel</button>
+        <button mat-raised-button style="background-color: #F06548; color: white;" type="submit" [disabled]="courseForm.invalid">Reset</button>
+        <button mat-raised-button style="background-color: #0AB39C; color: white;" type="submit" [disabled]="courseForm.invalid">Create</button>
+      </div>
+    </form>
+  </mat-card>
+</div>
