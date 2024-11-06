@@ -1,1 +1,97 @@
-<p>enroll works!</p>
+<!-- <div class="create-course-wrapper py-5 d-flex justify-content-center align-items-center min-vh-100">
+    <mat-card class="course-card">
+      <mat-card-title>Enroll to the Course</mat-card-title>
+      <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill">
+          <mat-label>Course ID</mat-label>
+          <input matInput formControlName="courseId" placeholder="Enter Course ID" required />
+          <mat-error *ngIf="courseForm.get('courseId')?.invalid && courseForm.get('courseId')?.touched">
+            Course ID is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Course Name</mat-label>
+          <input matInput formControlName="courseName" placeholder="Enter Course Name" required />
+          <mat-error *ngIf="courseForm.get('courseName')?.invalid && courseForm.get('courseName')?.touched">
+            Course name is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Instructor Name</mat-label>
+          <input matInput formControlName="instructorName" placeholder="Enter Instructor Name" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Course Venue</mat-label>
+          <input matInput formControlName="courseVenue" placeholder="Enter Course Venue" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Course Timing</mat-label>
+          <input matInput formControlName="courseTiming" placeholder="Enter Course Timing" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Course Mode</mat-label>
+            <input matInput formControlName="courseTiming" placeholder="Enter Course Mode" required />
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Course Days</mat-label>
+          <input matInput formControlName="courseDays" placeholder="e.g., Mon, Wed, Fri" required />
+        </mat-form-field>
+  
+        <div class="button-group">
+          <button mat-raised-button style="background-color: #F06548; color: white;" type="submit" [disabled]="courseForm.invalid">Cancel</button>
+          <button mat-raised-button style="background-color: #F06548; color: white;" type="submit" [disabled]="courseForm.invalid">Reset</button>
+          <button mat-raised-button style="background-color: #0AB39C; color: white;" type="submit" [disabled]="courseForm.invalid">Create</button>
+        </div>
+      </form>
+    </mat-card>
+  </div> -->
+  
+
+  <div class="enrollment-container">
+    <h2>Course Enrollment</h2>
+    <form [formGroup]="enrollmentForm" (ngSubmit)="onSubmit()">
+      
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Student ID</mat-label>
+        <input matInput formControlName="studentId" placeholder="Enter your Student ID">
+        <mat-error *ngIf="enrollmentForm.controls['studentId'].invalid && enrollmentForm.controls['studentId'].touched">
+          Student ID is required.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Email ID</mat-label>
+        <input matInput formControlName="emailId" placeholder="Enter your Email ID">
+        <mat-error *ngIf="enrollmentForm.controls['emailId'].invalid && enrollmentForm.controls['emailId'].touched">
+          <div *ngIf="enrollmentForm.controls['emailId'].hasError('required')">Please enter a valid email address.</div>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Course</mat-label>
+        <mat-select formControlName="courseId" placeholder="Select a Course">
+          <mat-option *ngFor="let course of courses" [value]="course.id">{{ course.name }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="enrollmentForm.controls['courseId'].invalid && enrollmentForm.controls['courseId'].touched">
+          Course selection is required.
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-raised-button color="primary" type="submit" [disabled]="enrollmentForm.invalid">
+          Enroll
+        </button>
+        <button mat-raised-button color="accent" type="submit" (click)="onCancel()">
+          Cancel
+        </button>
+      </div>
+      
+    </form>
+  </div>
+  

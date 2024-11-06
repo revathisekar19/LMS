@@ -1,0 +1,26 @@
+.enrollment-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .enrollment-container h2 {
+    text-align: center;
+  }
+  
+  .form-field {
+    width: 100%;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+  }
+  .button-container {
+    display: flex;
+    gap: 10px; /* Adds space between the buttons */
+    justify-content: flex-start; /* Align buttons to the left (optional) */
+  }
+  

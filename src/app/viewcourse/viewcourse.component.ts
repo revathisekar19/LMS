@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 export interface Course {
   id: string;
   name: string;
@@ -29,6 +30,7 @@ const COURSE_DATA: Course[] = [
 })
 export class ViewcourseComponent implements  AfterViewInit{
   
+  constructor(private router : Router){}
  
   displayedColumns: string[] = ['id', 'name', 'description', 'timings', 'venue', 'actions'];
   dataSource = new MatTableDataSource<Course>(COURSE_DATA);
@@ -47,5 +49,8 @@ export class ViewcourseComponent implements  AfterViewInit{
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  onEnroll(){
+    this.router.navigate(['/enroll']);
   }
 }
