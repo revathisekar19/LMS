@@ -28,6 +28,8 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -59,7 +61,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatMenuModule,
     MatListModule,
     MatProgressBarModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatPaginatorModule,
+    MatTableModule
   ],
   providers: [
     provideAnimationsAsync()

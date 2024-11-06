@@ -1,1 +1,57 @@
-<p>viewcourse works!</p>
+<div class="table-container">
+    <div class="header-row">
+        <h2>List of Courses</h2>
+        <mat-form-field class="search-bar" appearance="fill">
+          <mat-label>Search course</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Search" />
+        </mat-form-field>
+      </div>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <!-- Course Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Course Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+  
+      <!-- Course Description Column -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef>Course Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+  
+      <!-- Timings Column -->
+      <ng-container matColumnDef="timings">
+        <th mat-header-cell *matHeaderCellDef>Timings</th>
+        <td mat-cell *matCellDef="let element">{{ element.timings }}</td>
+      </ng-container>
+  
+      <!-- Course Venue Column -->
+      <ng-container matColumnDef="venue">
+        <th mat-header-cell *matHeaderCellDef>Course Venue</th>
+        <td mat-cell *matCellDef="let element">{{ element.venue }}</td>
+      </ng-container>
+  
+      <!-- Actions Column -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary">Enroll</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <mat-paginator [length]="length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+  </div>
+  
+  
