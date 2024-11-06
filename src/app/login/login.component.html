@@ -1,14 +1,17 @@
-<div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
-
+<div class="body">
 <mat-card class="login-card">
-    <mat-card-title>Login</mat-card-title>
+  <div style="margin-bottom: 30px; text-align: center;">
+    <h4>Welcome Back !</h4>
+    <p>Sign in to continue to LearnIo.</p>
+</div> 
+    <mat-card-title style="text-align: center;">Login</mat-card-title>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" required />
         <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
           Please enter a valid email.
-        </mat-error>
+        </mat-error> 
       </mat-form-field>
   
       <mat-form-field appearance="fill">
@@ -25,3 +28,4 @@
       <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
 </mat-card>
+</div>
