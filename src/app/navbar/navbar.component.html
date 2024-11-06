@@ -5,7 +5,7 @@
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
            <mat-icon>directions_boat</mat-icon>
-       </button>My App
+       </button>LearnIo
     </span>
 </mat-toolbar>
 <mat-drawer-container>
@@ -22,8 +22,10 @@
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>face</mat-icon>Courses</button>
           <mat-menu #menu="matMenu">
               <button mat-menu-item routerLink="/enroll"><mat-icon>directions_boat</mat-icon>Enroll</button>
+               <!-- <mat-divider></mat-divider>
+               <button mat-menu-item routerLink="/course"><mat-icon>today</mat-icon>Create</button> -->
                <mat-divider></mat-divider>
-               <button mat-menu-item routerLink="/course"><mat-icon>today</mat-icon>Create</button>
+               <button mat-menu-item routerLink="/view"><mat-icon>today</mat-icon>View</button>
           </mat-menu>
         </mat-list-item>
         <mat-divider></mat-divider>
