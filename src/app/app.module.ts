@@ -14,15 +14,33 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { RegistrationComponent } from './registration/registration.component';
-import { CourseComponent } from './course/course.component'
-
+import { CourseComponent } from './course/course.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { EnrollComponent } from './enrollcourse/enroll.component';
+import { ViewcourseComponent } from './viewcourse/viewcourse.component';
+import { ProfileComponent } from './profile/profile.component'
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { HomeComponent } from './home/home.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
    LoginComponent,
    RegistrationComponent,
-   CourseComponent
+   CourseComponent,
+   DashboardComponent,
+   EnrollComponent,
+   ViewcourseComponent,
+   ProfileComponent,
+   NavbarComponent,
+   HomeComponent,
     ],
   imports: [
     BrowserModule,
@@ -34,7 +52,14 @@ import { CourseComponent } from './course/course.component'
     MatButtonModule,
     MatCardModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
+    MatProgressBarModule,
+    FontAwesomeModule
   ],
   providers: [
     provideAnimationsAsync()
