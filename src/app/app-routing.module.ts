@@ -17,7 +17,7 @@ const routes: Routes = [
 {path : 'enroll' , component : EnrollComponent},
 {path : 'view', component : ViewcourseComponent},
 {path : 'profile' , component : ProfileComponent},
-{path : 'home' , component : HomeComponent}
+{path : 'home' , component : HomeComponent},
 
 ];
 

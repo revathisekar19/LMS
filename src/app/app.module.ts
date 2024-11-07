@@ -31,6 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { FooterComponent } from './footer/footer.component';
     MatProgressBarModule,
     FontAwesomeModule,
     MatPaginatorModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   providers: [
     provideAnimationsAsync()
