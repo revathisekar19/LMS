@@ -35,12 +35,12 @@
   .header-row h2 {
     margin: 0;
     font-weight: 600;
-    margin-right: 8px; /* Adjust this value or remove for zero space */
+    margin-right: 8px; 
   }
   
   .search-bar {
-    width: 300px; /* Adjust width as needed */
-    margin: 0; /* Ensure no extra margin is applied */
+    width: 300px; 
+    margin: 0; 
   }
   
   

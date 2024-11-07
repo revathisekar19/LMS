@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LoginService } from './services/login.service';
 
 @Component({
@@ -6,10 +6,13 @@ import { LoginService } from './services/login.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   title = 'ilearn';
+  isLoggedIn = false;
   constructor(private loginservice : LoginService){}
-  isAuthenticated() {
-    return this.loginservice.isAuthenticatedUser();
-  }
+  ngOnInit(): void {
+    this.loginservice.isLoggedIn.subscribe(status => {
+      this.isLoggedIn = status;
+    });  }
+ 
 }

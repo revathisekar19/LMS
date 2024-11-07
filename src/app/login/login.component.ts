@@ -27,23 +27,9 @@ export class LoginComponent {
   }
   
   onSubmit() {
+    console.log("logged in")
+this.loginservice.login();
 
-    this.loginservice.login(this.email,this.password).subscribe({
-      next:res=>{
-        if(res){
-          alert("Redirecting to Main Application")
-          this.router.navigate(['/home']);
-        }
-     else {
-    alert("Please enter Valid Details")
-     }
-      },
-      error:error=>{
-        console.log('Authentication failed:',error);
-      }
-    })
-        this.email='';
-    this.password='';
-      }
   }
 
+}

@@ -20,7 +20,7 @@
   }
   .button-container {
     display: flex;
-    gap: 10px; /* Adds space between the buttons */
-    justify-content: flex-start; /* Align buttons to the left (optional) */
+    gap: 10px; 
+    justify-content: flex-start; 
   }
   
