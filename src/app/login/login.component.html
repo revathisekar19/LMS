@@ -4,7 +4,7 @@
     <h4>Welcome Back !</h4>
     <p>Sign in to continue to LearnIo.</p>
 </div> 
-    <mat-card-title style="text-align: center;">Login</mat-card-title>
+    <mat-card-title style="text-align: center;"></mat-card-title>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
@@ -27,5 +27,9 @@
   
       <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
-</mat-card>
+    <!-- <p style="text-align: center; margin-top: 20px;">
+      Don't have an account?
+      <button mat-button color="accent">Sign Up</button>
+    </p> -->
+  </mat-card>
 </div>
