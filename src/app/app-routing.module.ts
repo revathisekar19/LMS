@@ -8,16 +8,17 @@ import { EnrollComponent } from './enrollcourse/enroll.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { ProfileComponent } from './profile/profile.component';
 import { HomeComponent } from './home/home.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
 {path : 'dashboard' , component : DashboardComponent},
-{path : 'register' , component : RegistrationComponent}  ,
 {path : 'course' , component : CourseComponent},
 {path : 'enroll' , component : EnrollComponent},
 {path : 'view', component : ViewcourseComponent},
 {path : 'profile' , component : ProfileComponent},
 {path : 'home' , component : HomeComponent},
+{path : 'register' , component : RegisterComponent}
 
 ];
 

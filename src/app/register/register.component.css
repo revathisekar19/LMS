@@ -1,0 +1,33 @@
+.body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        background-image: linear-gradient(
+          45deg,
+          hsl(240deg 72% 79%) 0%,
+          hsl(293deg 53% 76%) 8%,
+          hsl(334deg 100% 83%) 17%,
+          hsl(357deg 100% 86%) 25%,
+          hsl(21deg 100% 85%) 33%,
+          hsl(37deg 100% 85%) 42%,
+          hsl(55deg 90% 88%) 50%,
+          hsl(42deg 100% 86%) 58%,
+          hsl(34deg 100% 84%) 67%,
+          hsl(26deg 100% 83%) 75%,
+          hsl(18deg 100% 83%) 83%,
+          hsl(10deg 94% 82%) 92%,
+          hsl(0deg 81% 81%) 100%
+        );
+      }
+      .registration-card {
+        max-width: 400px;
+        margin: 2rem auto;
+        padding: 2rem;
+      }
+      mat-form-field {
+        width: 100%;
+      }
+      button {
+        width: 100%;
+      }

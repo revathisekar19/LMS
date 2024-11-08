@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
   breadCrumbItems!: Array<{}>;
 
-  constructor(){}
+  constructor(private loginservice : LoginService){}
+  logout(){
+    this.loginservice.logout();
+  }
 }
