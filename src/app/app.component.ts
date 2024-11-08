@@ -8,8 +8,10 @@ import { LoginService } from './services/login.service';
 })
 export class AppComponent {
   title = 'ilearn';
+  isLoggedIn = false;
   constructor(private loginservice : LoginService){}
-  isAuthenticated() {
-    return this.loginservice.isAuthenticatedUser();
-  }
+  ngOnInit(): void {
+    this.loginservice.isLoggedIn.subscribe(status => {
+      this.isLoggedIn = status;
+    });  }
 }
