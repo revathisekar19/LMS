@@ -32,6 +32,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from './footer/footer.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
    NavbarComponent,
    HomeComponent,
    FooterComponent,
+   RegisterComponent,
     ],
   imports: [
     BrowserModule,

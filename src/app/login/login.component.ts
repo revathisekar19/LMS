@@ -26,14 +26,12 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.hidePassword = !this.hidePassword; 
   }
-  // onSignup(){
-  //   this.router.navigate(['/register']);
-  // }
-
   
   onSubmit() {
+    const role = 'student'; 
     console.log("logged in")
 this.loginservice.login();
+this.loginservice.setUserRole(role);
 this.router.navigate(['/home']);
 
   }

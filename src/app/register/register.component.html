@@ -1,5 +1,4 @@
-<div class="auth-page-wrapper auth-bg-cover py-5 d-flex justify-content-center align-items-center min-vh-100">
-
+<div class="body">
     <mat-card class="registration-card">
         <mat-card-title>Registration</mat-card-title>
         <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
@@ -41,4 +40,4 @@
           <button mat-raised-button color="primary" type="submit" [disabled]="registrationForm.invalid">Register</button>
         </form>
     </mat-card>
-    
+    </div>
