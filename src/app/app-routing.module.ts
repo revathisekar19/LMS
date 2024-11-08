@@ -7,19 +7,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './enrollcourse/enroll.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { ProfileComponent } from './profile/profile.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-// {path : '' , component : LoginComponent},
+{path : '' , component : LoginComponent},
 {path : 'dashboard' , component : DashboardComponent},
 {path : 'register' , component : RegistrationComponent}  ,
 {path : 'course' , component : CourseComponent},
 {path : 'enroll' , component : EnrollComponent},
 {path : 'view', component : ViewcourseComponent},
 {path : 'profile' , component : ProfileComponent},
-{path : '' , component : NavbarComponent},
-{path : 'home' , component : HomeComponent}
+{path : 'home' , component : HomeComponent},
 
 ];
 

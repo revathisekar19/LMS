@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../environment/environment';
-import * as bcrypt from 'bcryptjs';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 
 @Injectable({
