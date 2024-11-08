@@ -1,0 +1,46 @@
+.table-container {
+    padding: 20px;
+    background-color: #f5f7fb;
+    border-radius: 8px;
+  }
+  
+  h2 {
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  
+  .search-bar {
+    margin-bottom: 16px;
+    width: 100%;
+  }
+  
+  .mat-elevation-z8 {
+    background-color: white;
+  }
+  
+  .mat-header-cell, .mat-cell {
+    color: #333;
+  }
+  
+  button {
+    color: white;
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    margin-bottom: 16px;
+  }
+  
+  .header-row h2 {
+    margin: 0;
+    font-weight: 600;
+    margin-right: 8px; /* Adjust this value or remove for zero space */
+  }
+  
+  .search-bar {
+    width: 300px; /* Adjust width as needed */
+    margin: 0; /* Ensure no extra margin is applied */
+  }
+  
+  

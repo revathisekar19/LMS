@@ -1,0 +1,49 @@
+.dashboard-container {
+    display: flex;
+    height: 100vh; /* Full height */
+  }
+  
+  .sidebar {
+    width: 250px; /* Sidebar width */
+    background-color: #f4f4f4; /* Light gray background */
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  }
+  
+
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #333; /* Dark text */
+  }
+  
+  .sidebar a:hover {
+    color: #007bff; /* Blue on hover */
+  }
+  
+  .main-content {
+    flex-grow: 1; /* Takes remaining space */
+    padding: 20px; /* Padding for main content */
+    background-color: #fff; /* White background */
+  }
+  
+  .sidebar {
+    padding: 20px;
+  }
+  
+  .nav-item {
+    margin: 15px 0; /* Space between links */
+  }
+  
+  .nav-item a {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for clickable area */
+    display: block; /* Make the entire block clickable */
+    transition: background-color 0.3s; /* Smooth background change */
+  }
+  
+  .nav-item a:hover {
+    background-color: #3b4a6b; /* Darker background on hover */
+  }
+  
