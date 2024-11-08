@@ -8,9 +8,15 @@
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
-    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-      <mat-icon>favorite</mat-icon>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile icon-button">
+      <mat-icon>account_circle</mat-icon>
     </button>
+    <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
 </mat-toolbar>
 <mat-drawer-container>
     <mat-drawer #drawer opened mode="side" position="start">
