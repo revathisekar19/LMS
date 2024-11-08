@@ -14,5 +14,5 @@ export class AppComponent implements OnInit{
     this.loginservice.isLoggedIn.subscribe(status => {
       this.isLoggedIn = status;
     });  }
- 
+
 }
