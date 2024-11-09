@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: staging
+        working-directory: master
    
     steps:
     - name: Checkout code
