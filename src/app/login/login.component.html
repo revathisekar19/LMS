@@ -1,3 +1,5 @@
+<div *ngIf="isLoginMode">
+
 <div class="body">
 <mat-card class="login-card">
   <div style="margin-bottom: 30px; text-align: center;">
@@ -35,4 +37,10 @@
 </div>
 
   </mat-card>
+</div>
+
+</div>
+
+<div *ngIf="!isLoginMode">
+  <app-register></app-register>
 </div>
