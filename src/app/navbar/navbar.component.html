@@ -12,6 +12,9 @@
       <mat-icon>account_circle</mat-icon>
     </button>
     <mat-menu #profileMenu="matMenu">
+      <div style="padding: 8px; font-weight: bold;">
+        Hello, {{ userName || 'Guest' }}
+      </div>
       <button mat-menu-item (click)="logout()">
         <mat-icon>logout</mat-icon>
         <span>Logout</span>
@@ -30,13 +33,6 @@
         <mat-divider></mat-divider>
         <mat-list-item>
           <button mat-button  routerLink="/view"><mat-icon>face</mat-icon>Courses</button>
-          <!-- <mat-menu #menu="matMenu"> -->
-              <!-- <button mat-menu-item routerLink="/enroll"><mat-icon>directions_boat</mat-icon>Enroll</button> -->
-               <!-- <mat-divider></mat-divider>
-               <button mat-menu-item routerLink="/course"><mat-icon>today</mat-icon>Create</button> -->
-               <!-- <mat-divider></mat-divider>
-               <button mat-menu-item routerLink="/view"><mat-icon>today</mat-icon>View</button> -->
-          <!-- </mat-menu> -->
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item routerLink="/profile" >

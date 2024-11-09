@@ -24,10 +24,11 @@
         max-width: 400px;
         margin: 2rem auto;
         padding: 2rem;
+        background: rgba( 255, 255, 255, 0.3 );
       }
       mat-form-field {
         width: 100%;
       }
       button {
         width: 100%;
-      }
+      } 

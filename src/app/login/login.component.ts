@@ -14,14 +14,17 @@ export class LoginComponent {
   loginForm: FormGroup;
   hidePassword: boolean = true;
   year: number = new Date().getFullYear();
-  isLoginMode: boolean = true; // To toggle between login and registration form
+  isLoginMode: boolean = true;
 
 
   constructor(private fb: FormBuilder,private router : Router, private loginservice : LoginService,
     public dialog: MatDialog) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      role: ['', Validators.required],
+      firstName: ['', [Validators.required]]
+
     });
   }
 
@@ -30,11 +33,13 @@ export class LoginComponent {
   }
   
   onSubmit() {
-    const role = 'student'; 
     console.log("logged in")
-this.loginservice.login();
-this.loginservice.setUserRole(role);
-this.router.navigate(['/home']);
+    const role = this.loginForm.get('role')?.value;
+    const firstName = this.loginForm.get('firstName')?.value;
+    sessionStorage.setItem('role', role);
+    sessionStorage.setItem('firstName', firstName);
+     this.loginservice.login();
+     this.router.navigate(['/home']);
 
   }
 

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -11,27 +13,31 @@ export class RegisterComponent {
   hidePassword: boolean = true;
   year: number = new Date().getFullYear();;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router : Router, private cdr: ChangeDetectorRef) {
     this.registrationForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      role: ['', Validators.required] 
     });
   }
 
   togglePasswordVisibility() {
-    this.hidePassword = !this.hidePassword; // Toggle the visibility
+    this.hidePassword = !this.hidePassword; 
   }
   
   onSubmit() {
     if (this.registrationForm.valid) {
-      const { firstName, lastName,email, password } = this.registrationForm.value;
-      console.log(firstName);
-      console.log(lastName);
-      console.log('Email:', email);
-      console.log('Password:', password);
-      alert("Welcome");
+      const firstName = this.registrationForm.get('firstName')?.value;
+    const role = this.registrationForm.get('role')?.value;
+    console.log("User registered");
+    sessionStorage.setItem('firstName', firstName);
+    sessionStorage.setItem('role', role);
+    this.router.navigateByUrl('/home');
+
     }
   }
+
+  
 }

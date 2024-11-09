@@ -13,12 +13,11 @@ import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { RegistrationComponent } from './registration/registration.component';
-import { CourseComponent } from './course/course.component';
+import { CourseComponent } from './components/course/course.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { EnrollComponent } from './enrollcourse/enroll.component';
-import { ViewcourseComponent } from './viewcourse/viewcourse.component';
-import { ProfileComponent } from './profile/profile.component'
+import { EnrollComponent } from './components/enrollcourse/enroll.component';
+import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
+import { ProfileComponent } from './components/profile/profile.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -30,15 +29,14 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
    LoginComponent,
-   RegistrationComponent,
    CourseComponent,
    DashboardComponent,
    EnrollComponent,
@@ -69,7 +67,7 @@ import { RegisterComponent } from './register/register.component';
     FontAwesomeModule,
     MatPaginatorModule,
     MatTableModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
     provideAnimationsAsync()

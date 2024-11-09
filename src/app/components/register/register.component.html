@@ -12,11 +12,23 @@
 
           <mat-form-field appearance="fill"> 
             <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastName" type="lastName" required />
+            <input matInput formControlName="lastName" type="lastName" />
             <mat-error *ngIf="registrationForm.get('lastName')?.invalid && registrationForm.get('lastName')?.touched">
               Please enter a valid last name.
             </mat-error>
           </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Role</mat-label>
+            <mat-select formControlName="role" required>
+              <mat-option value="student">Student</mat-option>
+              <mat-option value="teacher">Teacher</mat-option>
+            </mat-select>
+            <mat-error *ngIf="registrationForm.get('role')?.invalid && registrationForm.get('role')?.touched">
+              Please select a role.
+            </mat-error>
+          </mat-form-field>
+          
       
           <mat-form-field appearance="fill">
             <mat-label>Email</mat-label>

@@ -7,10 +7,14 @@ import { LoginService } from '../services/login.service';
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
-  breadCrumbItems!: Array<{}>;
-
-  constructor(private loginservice : LoginService){}
+  userName: string = '';
+  constructor(private loginservice : LoginService){
+    this.userName = sessionStorage.getItem('firstName') || '';
+    console.log("username",this.userName);
+  }
   logout(){
+    sessionStorage.clear();
     this.loginservice.logout();
   }
+
 }

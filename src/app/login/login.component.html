@@ -8,12 +8,32 @@
 </div> 
     <mat-card-title style="text-align: center;"></mat-card-title>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <mat-form-field appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input matInput formControlName="firstName" type="text" required />
+        <mat-error *ngIf="loginForm.get('firstName')?.invalid && loginForm.get('firstName')?.touched">
+          Please enter a valid first name.
+        </mat-error> 
+      </mat-form-field>
+    
       <mat-form-field appearance="fill">
         <mat-label>Email</mat-label>
         <input matInput formControlName="email" type="email" required />
         <mat-error *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
           Please enter a valid email.
         </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role" required>
+          <mat-option value="student">Student</mat-option>
+          <mat-option value="teacher">Teacher</mat-option>
+        </mat-select>
+        <mat-error *ngIf="loginForm.get('role')?.invalid && loginForm.get('role')?.touched">
+          Please select a role.
+        </mat-error>
       </mat-form-field>
   
       <mat-form-field appearance="fill">
@@ -31,10 +51,10 @@
     </form>
 
     <br>
-    <div style="text-align: center;">
-    <strong>Don't have an account ?</strong>
-    <button mat-button class="register" type="reset" (click)="goToRegistration()">Register</button>
-</div>
+    <div style="text-align: center; margin-top: 10px;">
+      <p>Don't have an account ?</p>
+      <button mat-button  color="accent" (click)="goToRegistration()">Register</button>
+    </div>
 
   </mat-card>
 </div>
