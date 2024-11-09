@@ -1,3 +1,5 @@
+<div *ngIf="isLoginMode">
+
 <div class="body">
 <mat-card class="login-card">
   <div style="margin-bottom: 30px; text-align: center;">
@@ -27,5 +29,18 @@
   
       <button mat-raised-button color="primary" type="submit" [disabled]="loginForm.invalid">Login</button>
     </form>
+
+    <br>
+    <div style="text-align: center;">
+    <strong>Don't have an account ?</strong>
+    <button mat-button class="register" type="reset" (click)="goToRegistration()">Register</button>
+</div>
+
   </mat-card>
+</div>
+
+</div>
+
+<div *ngIf="!isLoginMode">
+  <app-register></app-register>
 </div>

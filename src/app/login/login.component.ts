@@ -13,7 +13,9 @@ export class LoginComponent {
   password: string = '';
   loginForm: FormGroup;
   hidePassword: boolean = true;
-  year: number = new Date().getFullYear();;
+  year: number = new Date().getFullYear();
+  isLoginMode: boolean = true; // To toggle between login and registration form
+
 
   constructor(private fb: FormBuilder,private router : Router, private loginservice : LoginService,
     public dialog: MatDialog) {
@@ -34,6 +36,11 @@ this.loginservice.login();
 this.loginservice.setUserRole(role);
 this.router.navigate(['/home']);
 
+  }
+
+  goToRegistration() {
+    this.isLoginMode = !this.isLoginMode;
+    this.router.navigate(['/register']);
   }
 
 }
