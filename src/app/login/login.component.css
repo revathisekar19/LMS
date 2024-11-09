@@ -34,3 +34,8 @@
           hsl(0deg 81% 81%) 100%
         );
       }
+
+      button.register{
+        background-color: #405189;
+        color: white;
+      }

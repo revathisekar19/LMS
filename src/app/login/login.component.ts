@@ -36,4 +36,8 @@ this.router.navigate(['/home']);
 
   }
 
+  goToRegistration() {
+    this.router.navigate(['/register']);
+  }
+
 }
