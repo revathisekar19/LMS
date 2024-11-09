@@ -1,8 +1,28 @@
-name: hello-world
-on: push
+name: Run Test on Each Push
+on:
+  push:
+    branches:
+      - master
+      - staging
+  pull_request:
+    branches:
+      - master
+      - staging
+
 jobs:
-  my-job:
+
+  frontend-test:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: staging
+   
     steps:
-      - name: my-step
-        run: echo "Hello World!"
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+
+    - name: Install dependencies & Test
+      run: npm install && npm run test
