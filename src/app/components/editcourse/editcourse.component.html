@@ -1,0 +1,28 @@
+<h2 mat-dialog-title>Edit Course</h2>
+
+<form [formGroup]="editCourseForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Course Name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Course Description</mat-label>
+    <input matInput formControlName="description" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Timings</mat-label>
+    <input matInput formControlName="timings" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Course Venue</mat-label>
+    <input matInput formControlName="venue" />
+  </mat-form-field>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="!editCourseForm.valid">Save</button>
+  </div>
+</form>

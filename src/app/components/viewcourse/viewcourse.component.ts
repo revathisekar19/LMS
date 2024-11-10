@@ -2,6 +2,8 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { EditcourseComponent } from '../editcourse/editcourse.component';
+import { MatDialog } from '@angular/material/dialog';
 export interface Course {
   id: string;
   name: string;
@@ -29,8 +31,14 @@ const COURSE_DATA: Course[] = [
   styleUrl: './viewcourse.component.css'
 })
 export class ViewcourseComponent implements  AfterViewInit{
-  
-  constructor(private router : Router){}
+  userName: string = '';
+  userRole : string = '';
+  constructor(private router : Router,
+    private dialog : MatDialog
+  ){
+    this.userName = sessionStorage.getItem('firstName') || '';
+    this.userRole = sessionStorage.getItem('role') || '';
+  }
  
   displayedColumns: string[] = ['id', 'name', 'description', 'timings', 'venue', 'actions'];
   dataSource = new MatTableDataSource<Course>(COURSE_DATA);
@@ -53,4 +61,29 @@ export class ViewcourseComponent implements  AfterViewInit{
   onEnroll(){
     this.router.navigate(['/enroll']);
   }
+
+  // Open Edit Course Dialog
+  openEditDialog(course: Course): void {
+    if (this.userRole === 'teacher') {
+      const dialogRef = this.dialog.open(EditcourseComponent, {
+        width: '500px',
+        data: course, // Passing course data to dialog
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // You can update the course list after the dialog is closed with updated data
+          const index = this.dataSource.data.findIndex(c => c.id === result.id);
+          if (index !== -1) {
+            this.dataSource.data[index] = result; // Update the course data
+            this.dataSource._updateChangeSubscription(); // Refresh table
+          }
+        }
+      });
+    } else {
+      // Optionally show a message if not a teacher
+      alert('You do not have permission to edit courses.');
+    }
+  }
+
 }

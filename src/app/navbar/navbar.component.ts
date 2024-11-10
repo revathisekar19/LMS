@@ -8,9 +8,10 @@ import { LoginService } from '../services/login.service';
 })
 export class NavbarComponent {
   userName: string = '';
+  userRole : string = '';
   constructor(private loginservice : LoginService){
     this.userName = sessionStorage.getItem('firstName') || '';
-    console.log("username",this.userName);
+    this.userRole = sessionStorage.getItem('role') || '';
   }
   logout(){
     sessionStorage.clear();

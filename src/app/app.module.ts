@@ -32,6 +32,7 @@ import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from './components/footer/footer.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegisterComponent } from './components/register/register.component';
+import { EditcourseComponent } from './components/editcourse/editcourse.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { RegisterComponent } from './components/register/register.component';
    HomeComponent,
    FooterComponent,
    RegisterComponent,
+   EditcourseComponent,
     ],
   imports: [
     BrowserModule,

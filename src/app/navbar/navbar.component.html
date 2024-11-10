@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="mat-elevation-z8">
+<!-- <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
@@ -33,6 +33,67 @@
         <mat-divider></mat-divider>
         <mat-list-item>
           <button mat-button  routerLink="/view"><mat-icon>face</mat-icon>Courses</button>
+
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/profile" >
+          <button mat-button>
+            <mat-icon>settings</mat-icon>
+            Profile
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div style="text-align: center;min-height: 820px;">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+
+    </mat-drawer-content>
+
+</mat-drawer-container> -->
+
+
+<div *ngIf="userRole === 'student'">
+  <mat-toolbar color="primary" class="mat-elevation-z8">
+    <button  mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+        <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
+           <mat-icon>directions_boat</mat-icon>
+       </button>LearnIo
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile icon-button">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <div style="padding: 8px; font-weight: bold;">
+        Hello, {{ userName || 'Guest' }}
+      </div>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer #drawer opened mode="side" position="start">
+      <mat-nav-list>
+        <mat-list-item routerLink="/home">
+          <button mat-button>
+            <mat-icon>home</mat-icon>
+            Dashboard
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <button mat-button  routerLink="/view"><mat-icon>face</mat-icon>Courses</button>
+
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item routerLink="/profile" >
@@ -54,3 +115,69 @@
     </mat-drawer-content>
 
 </mat-drawer-container>
+
+</div>
+
+<div *ngIf="userRole === 'teacher'">
+  <mat-toolbar color="primary" class="mat-elevation-z8">
+    <button  mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+        <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
+           <mat-icon>directions_boat</mat-icon>
+       </button>LearnIo
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile icon-button">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <div style="padding: 8px; font-weight: bold;">
+        Hello, {{ userName || 'Guest' }}
+      </div>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer #drawer opened mode="side" position="start">
+      <mat-nav-list>
+        <mat-list-item routerLink="/home">
+          <button mat-button>
+            <mat-icon>home</mat-icon>
+            Dashboard
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>face</mat-icon>Courses</button>
+                <mat-menu #menu="matMenu">
+                   <button mat-menu-item routerLink="/course">Create Course</button>
+                    <button mat-menu-item routerLink="/view">View Course</button>
+                </mat-menu>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item routerLink="/profile" >
+          <button mat-button>
+            <mat-icon>settings</mat-icon>
+            Profile
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div style="text-align: center;min-height: 820px;">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
+
+</div>

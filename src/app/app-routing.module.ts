@@ -8,6 +8,7 @@ import { ViewcourseComponent } from './components/viewcourse/viewcourse.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './components/register/register.component';
+import { EditcourseComponent } from './components/editcourse/editcourse.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
 {path : 'view', component : ViewcourseComponent},
 {path : 'profile' , component : ProfileComponent},
 {path : 'home' , component : HomeComponent},
-{path : 'register' , component : RegisterComponent}
+{path : 'register' , component : RegisterComponent},
+{path : 'edit' , component : EditcourseComponent},
 
 ];
 
