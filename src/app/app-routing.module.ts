@@ -12,7 +12,7 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
-{path : 'dashboard' , component : DashboardComponent},
+// {path : 'dashboard' , component : DashboardComponent},
 {path : 'course' , component : CourseComponent},
 {path : 'enroll' , component : EnrollComponent},
 {path : 'view', component : ViewcourseComponent},
