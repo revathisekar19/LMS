@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
-
+import { MatIconModule } from '@angular/material/icon';
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
   let fixture: ComponentFixture<RegisterComponent>;
@@ -21,6 +21,7 @@ describe('RegisterComponent', () => {
         MatFormFieldModule,
         MatDialogModule,
         RouterModule,
+        MatIconModule,
         BrowserAnimationsModule
       ],
     })

@@ -11,7 +11,7 @@ import { CourseComponent } from './components/course/course.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -35,7 +35,7 @@ describe('AppComponent', () => {
         AppComponent,
         LoginComponent,
    CourseComponent,
-   DashboardComponent,
+  //  DashboardComponent,
    EnrollComponent,
    ViewcourseComponent,
    ProfileComponent,

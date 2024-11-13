@@ -14,7 +14,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { CourseComponent } from './components/course/course.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+// import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
 import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
 import { ProfileComponent } from './components/profile/profile.component'
@@ -30,7 +30,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
 import { FooterComponent } from './components/footer/footer.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
 
@@ -39,7 +39,7 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
     AppComponent,
    LoginComponent,
    CourseComponent,
-   DashboardComponent,
+  //  DashboardComponent,
    EnrollComponent,
    ViewcourseComponent,
    ProfileComponent,
