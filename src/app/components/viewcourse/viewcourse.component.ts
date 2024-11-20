@@ -4,53 +4,48 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { EditcourseComponent } from '../editcourse/editcourse.component';
 import { MatDialog } from '@angular/material/dialog';
+import { RestApiService } from '../../services/rest-api.service';
 export interface Course {
   id: string;
   name: string;
   description: string;
-  timings: string;
-  venue: string;
+  code: string;
 }
 
-const COURSE_DATA: Course[] = [
-  { id: '01', name: 'Jonathon', description: 'Senior Implementation Architect', timings: '9 AM - 12 PM', venue: 'Hauck Inc' },
-  { id: '02', name: 'Harold', description: 'Forward Creative Coordinator', timings: '1 PM - 3 PM', venue: 'Metz Inc' },
-  { id: '03', name: 'Shannon', description: 'Legacy Functionality Associate', timings: '3 PM - 5 PM', venue: 'Zemlok Group' },
-  { id: '04', name: 'Jonathon', description: 'Senior Implementation Architect', timings: '9 AM - 12 PM', venue: 'Hauck Inc' },
-  { id: '05', name: 'Harold', description: 'Forward Creative Coordinator', timings: '1 PM - 3 PM', venue: 'Metz Inc' },
-  { id: '06', name: 'Shannon', description: 'Legacy Functionality Associate', timings: '3 PM - 5 PM', venue: 'Zemlok Group' },
-  { id: '07', name: 'Jonathon', description: 'Senior Implementation Architect', timings: '9 AM - 12 PM', venue: 'Hauck Inc' },
-  { id: '08', name: 'Harold', description: 'Forward Creative Coordinator', timings: '1 PM - 3 PM', venue: 'Metz Inc' },
-  { id: '09', name: 'Shannon', description: 'Legacy Functionality Associate', timings: '3 PM - 5 PM', venue: 'Zemlok Group' },
-  { id: '10', name: 'Shannon', description: 'Legacy Functionality Associate', timings: '3 PM - 5 PM', venue: 'Zemlok Group' },
-
-];
 @Component({
   selector: 'app-viewcourse',
   templateUrl: './viewcourse.component.html',
   styleUrl: './viewcourse.component.css'
 })
-export class ViewcourseComponent implements  AfterViewInit{
+export class ViewcourseComponent implements  AfterViewInit, OnInit{
   userName: string = '';
   userRole : string = '';
   constructor(private router : Router,
-    private dialog : MatDialog
+    private dialog : MatDialog, private restApiService : RestApiService
   ){
     this.userName = sessionStorage.getItem('firstName') || '';
     this.userRole = sessionStorage.getItem('role') || '';
   }
+  ngOnInit(): void {
+    this.loadCourse();
+  }
  
-  displayedColumns: string[] = ['id', 'name', 'description', 'timings', 'venue', 'actions'];
-  dataSource = new MatTableDataSource<Course>(COURSE_DATA);
-  length: number = COURSE_DATA.length; 
+  // displayedColumns: string[] = ['id', 'name', 'description', 'timings', 'venue', 'actions'];
+  displayedColumns: string[] = ['id', 'code', 'name' ,'description'];
+  dataSource = new MatTableDataSource<Course>([]);
+  length: number = 0;
+  course : any;
+  // dataSource = new MatTableDataSource<Course>(COURSE_DATA);
+  // length: number = COURSE_DATA.length; 
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 
   
 
   ngAfterViewInit(): void {
-
-    this.dataSource.data = COURSE_DATA;
+    this.loadCourse();
+    this.dataSource.data = this.course;
+    console.log(this.course);
 
     this.dataSource.paginator = this.paginator;
     }
@@ -61,6 +56,22 @@ export class ViewcourseComponent implements  AfterViewInit{
   onEnroll(){
     this.router.navigate(['/enroll']);
   }
+
+   //load all courses
+   loadCourse(){
+    this.restApiService.viewCourse().subscribe(
+      (response: any) => {
+        this.course = response;
+        console.log(response);
+        this.dataSource.data = response;
+        this.length = response.length;
+      },
+      (error) => {
+        console.error('Error loading courses:', error);
+      }
+
+    )
+   }
 
   // Open Edit Course Dialog
   openEditDialog(course: Course): void {

@@ -33,6 +33,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
+import { HttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -78,3 +79,5 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
