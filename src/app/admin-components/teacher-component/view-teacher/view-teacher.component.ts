@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 export interface Teacher {
   id: string;
@@ -35,7 +36,7 @@ export class ViewTeacherComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 
-  constructor() {
+  constructor(private router : Router) {
   
   }
 
@@ -75,6 +76,7 @@ export class ViewTeacherComponent implements OnInit{
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
   editTeacher(teacher: Teacher): void {
+    this.router.navigate(['/edit-teacher']);
     console.log('Edit Teacher:', teacher);
   }
 

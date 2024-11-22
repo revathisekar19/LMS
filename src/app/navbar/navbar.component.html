@@ -64,7 +64,7 @@
     </button>
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
-           <mat-icon>directions_boat</mat-icon>
+           <mat-icon>local_library</mat-icon>
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
@@ -125,7 +125,7 @@
     </button>
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
-           <mat-icon>directions_boat</mat-icon>
+           <mat-icon>local_library</mat-icon>
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
@@ -191,7 +191,7 @@
     </button>
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
-           <mat-icon>directions_boat</mat-icon>
+           <mat-icon>local_library</mat-icon>
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
@@ -227,19 +227,19 @@
             <!-- Teacher Menu -->
             <button mat-menu-item [matMenuTriggerFor]="teacherMenu">Teacher</button>
             <mat-menu #teacherMenu="matMenu">
-              <button mat-menu-item routerLink="/create-teacher">Create</button>
-              <button mat-menu-item routerLink="/teacher/edit">Edit</button>
-              <button mat-menu-item routerLink="/teacher/delete">Delete</button>
-              <button mat-menu-item routerLink="/view-teacher">View</button>
+              <button mat-menu-item routerLink="/create-teacher">Create<mat-icon>add</mat-icon></button>
+              <button mat-menu-item routerLink="/view-teacher">View<mat-icon>visibility</mat-icon></button>
+              <button mat-menu-item routerLink="/teacher/edit">Edit<mat-icon>edit</mat-icon></button>
+              <button mat-menu-item routerLink="/teacher/delete">Delete<mat-icon>delete</mat-icon></button>
             </mat-menu>
         
             <!-- Student Menu -->
             <button mat-menu-item [matMenuTriggerFor]="studentMenu">Student</button>
             <mat-menu #studentMenu="matMenu">
-              <button mat-menu-item routerLink="/create-student" >Create</button>
-              <button mat-menu-item routerLink="/student/edit">Edit</button>
-              <button mat-menu-item routerLink="/student/delete">Delete</button>
-              <button mat-menu-item routerLink="/view-student">View</button>
+              <button mat-menu-item routerLink="/create-student" >Create<mat-icon>add</mat-icon></button>
+              <button mat-menu-item routerLink="/view-student">View<mat-icon>visibility</mat-icon></button>
+              <button mat-menu-item routerLink="/student/edit">Edit<mat-icon>edit</mat-icon></button>
+              <button mat-menu-item routerLink="/student/delete">Delete<mat-icon>delete</mat-icon></button>
             </mat-menu>
           </mat-menu>
         </mat-list-item>
@@ -248,8 +248,10 @@
         <mat-list-item>
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>book</mat-icon>Courses</button>
                 <mat-menu #menu="matMenu">
-                   <button mat-menu-item routerLink="/course">Add Course</button>
-                    <button mat-menu-item routerLink="/view">View Course</button>
+                    <button mat-menu-item routerLink="/course" >Create<mat-icon>add</mat-icon></button>
+                    <button mat-menu-item routerLink="/view">View<mat-icon>visibility</mat-icon></button>
+                    <button mat-menu-item routerLink="/student/edit">Edit<mat-icon>edit</mat-icon></button>
+                    <button mat-menu-item routerLink="/student/delete">Delete<mat-icon>delete</mat-icon></button>
                 </mat-menu>
         </mat-list-item>
         <mat-divider></mat-divider>

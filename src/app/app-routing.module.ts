@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { CourseComponent } from './components/course/course.component';
+import { CourseComponent } from './course/course.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
-import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -14,6 +13,8 @@ import { CreateTeacherComponent } from './admin-components/teacher-component/cre
 import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
 import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
 import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
+import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
+import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -30,6 +31,8 @@ const routes: Routes = [
 {path : 'create-student' , component : CreateStudentComponent},
 {path : 'view-student' , component : ViewStudentComponent},
 {path : 'view-teacher' , component : ViewTeacherComponent},
+{path : 'edit-teacher' , component : EditTeacherComponent},
+
 
 ];
 

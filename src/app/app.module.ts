@@ -13,10 +13,9 @@ import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { CourseComponent } from './components/course/course.component';
+import { CourseComponent } from './course/course.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
-import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
 import { ProfileComponent } from './components/profile/profile.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -40,7 +39,8 @@ import { CreateTeacherComponent } from './admin-components/teacher-component/cre
 import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
 import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
 import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
-
+import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
+import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +49,6 @@ import { ViewTeacherComponent } from './admin-components/teacher-component/view-
    CourseComponent,
   //  DashboardComponent,
    EnrollComponent,
-   ViewcourseComponent,
    ProfileComponent,
    NavbarComponent,
    HomeComponent,
@@ -61,6 +60,8 @@ import { ViewTeacherComponent } from './admin-components/teacher-component/view-
    CreateStudentComponent,
    ViewStudentComponent,
    ViewTeacherComponent,
+   EditTeacherComponent,
+   ViewcourseComponent
     ],
   imports: [
     BrowserModule,
