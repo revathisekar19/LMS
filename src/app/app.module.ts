@@ -33,7 +33,12 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
+import { AdminComponent } from './admin-components/admin/admin.component';
+import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
+
 
 @NgModule({
   declarations: [
@@ -49,6 +54,9 @@ import { HttpClient } from '@angular/common/http';
    FooterComponent,
    RegisterComponent,
    EditcourseComponent,
+   AdminComponent,
+   CreateTeacherComponent,
+   CreateStudentComponent,
     ],
   imports: [
     BrowserModule,
@@ -71,9 +79,11 @@ import { HttpClient } from '@angular/common/http';
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideHttpClient(withFetch()),
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]

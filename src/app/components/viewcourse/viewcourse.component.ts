@@ -5,11 +5,12 @@ import { Router } from '@angular/router';
 import { EditcourseComponent } from '../editcourse/editcourse.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RestApiService } from '../../services/rest-api.service';
+import { HttpClient } from '@angular/common/http';
 export interface Course {
   id: string;
+  code: string;
   name: string;
   description: string;
-  code: string;
 }
 
 @Component({
@@ -20,7 +21,7 @@ export interface Course {
 export class ViewcourseComponent implements  AfterViewInit, OnInit{
   userName: string = '';
   userRole : string = '';
-  constructor(private router : Router,
+  constructor(private router : Router, private http : HttpClient,
     private dialog : MatDialog, private restApiService : RestApiService
   ){
     this.userName = sessionStorage.getItem('firstName') || '';
@@ -30,22 +31,16 @@ export class ViewcourseComponent implements  AfterViewInit, OnInit{
     this.loadCourse();
   }
  
-  // displayedColumns: string[] = ['id', 'name', 'description', 'timings', 'venue', 'actions'];
   displayedColumns: string[] = ['id', 'code', 'name' ,'description'];
-  dataSource = new MatTableDataSource<Course>([]);
+  dataSource = new MatTableDataSource([]);
   length: number = 0;
-  course : any;
-  // dataSource = new MatTableDataSource<Course>(COURSE_DATA);
-  // length: number = COURSE_DATA.length; 
+  
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
 
   
 
   ngAfterViewInit(): void {
-    this.loadCourse();
-    this.dataSource.data = this.course;
-    console.log(this.course);
 
     this.dataSource.paginator = this.paginator;
     }
@@ -58,43 +53,16 @@ export class ViewcourseComponent implements  AfterViewInit, OnInit{
   }
 
    //load all courses
-   loadCourse(){
-    this.restApiService.viewCourse().subscribe(
-      (response: any) => {
-        this.course = response;
-        console.log(response);
-        this.dataSource.data = response;
-        this.length = response.length;
-      },
-      (error) => {
-        console.error('Error loading courses:', error);
-      }
-
-    )
-   }
-
-  // Open Edit Course Dialog
-  openEditDialog(course: Course): void {
-    if (this.userRole === 'teacher') {
-      const dialogRef = this.dialog.open(EditcourseComponent, {
-        width: '500px',
-        data: course, // Passing course data to dialog
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          // You can update the course list after the dialog is closed with updated data
-          const index = this.dataSource.data.findIndex(c => c.id === result.id);
-          if (index !== -1) {
-            this.dataSource.data[index] = result; // Update the course data
-            this.dataSource._updateChangeSubscription(); // Refresh table
-          }
+    loadCourse(){
+      this.restApiService.viewCourse().subscribe({
+        next : (res : any)=>{ 
+          this.dataSource.data = res;
+          console.log("course list",res);
+        },
+        error : (error : any) => {
+          console.log("course error",error);
         }
       });
-    } else {
-      // Optionally show a message if not a teacher
-      alert('You do not have permission to edit courses.');
     }
-  }
 
 }

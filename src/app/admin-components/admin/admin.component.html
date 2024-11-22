@@ -1,0 +1,29 @@
+<div class="dashboard-container">
+
+  <div class="card-container">
+    <div class="text-section">
+      <h3>Welcome to LearnIo</h3>
+      <p>Organize your work and Empower your study!</p>
+    </div>
+    <div class="image-section">
+      <img src="assets/images/admin.jpg" alt="Illustration" />
+    </div>
+</div>
+      
+    <!-- Summary Metrics -->
+    <div class="dashboard-metrics">
+      <mat-card *ngFor="let metric of metrics" class="metric-card">
+        <h2>{{ metric.value }}</h2>
+        <p>{{ metric.label }}</p>
+      </mat-card>
+    </div>
+  
+    <!-- Quick Actions -->
+    <!-- <div class="quick-actions">
+      <button mat-raised-button color="primary" routerLink="/student/create">Add Student</button>
+      <button mat-raised-button color="accent" routerLink="/teacher/create">Add Teacher</button>
+      <button mat-raised-button color="warn" routerLink="/assign-course">Assign Course</button>
+      <button mat-raised-button color="primary" routerLink="/generate-report">Generate Report</button>
+    </div> -->
+</div>
+  

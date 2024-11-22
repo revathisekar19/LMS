@@ -17,6 +17,12 @@
           <th mat-header-cell *matHeaderCellDef>ID</th>
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
+
+        <!-- Code Column -->
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef>Code</th>
+          <td mat-cell *matCellDef="let element">{{ element.code }}</td>
+        </ng-container>
     
         <!-- Course Name Column -->
         <ng-container matColumnDef="name">
@@ -31,16 +37,16 @@
         </ng-container>
     
         <!-- Timings Column -->
-        <ng-container matColumnDef="timings">
+        <!-- <ng-container matColumnDef="timings">
           <th mat-header-cell *matHeaderCellDef>Timings</th>
           <td mat-cell *matCellDef="let element">{{ element.timings }}</td>
-        </ng-container>
+        </ng-container> -->
     
         <!-- Course Venue Column -->
-        <ng-container matColumnDef="venue">
+        <!-- <ng-container matColumnDef="venue">
           <th mat-header-cell *matHeaderCellDef>Course Venue</th>
           <td mat-cell *matCellDef="let element">{{ element.venue }}</td>
-        </ng-container>
+        </ng-container> -->
     
         <!-- Actions Column -->
         <ng-container matColumnDef="actions">
@@ -105,7 +111,7 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="primary" (click)="openEditDialog(element)">Edit</button>
+            <!-- <button mat-raised-button color="primary" (click)="openEditDialog(element)">Edit</button> -->
           </td>
         </ng-container>
     

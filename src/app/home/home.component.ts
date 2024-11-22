@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit{
     this.userRole = sessionStorage.getItem('role') || '';
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 }

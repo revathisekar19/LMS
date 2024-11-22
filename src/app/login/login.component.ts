@@ -37,6 +37,7 @@ export class LoginComponent {
     const role = this.loginForm.get('role')?.value;
     const firstName = this.loginForm.get('firstName')?.value;
     sessionStorage.setItem('role', role);
+    console.log(role);
     sessionStorage.setItem('firstName', firstName);
      this.loginservice.login();
      this.router.navigate(['/home']);

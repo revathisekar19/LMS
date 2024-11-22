@@ -9,6 +9,9 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
+import { AdminComponent } from './admin-components/admin/admin.component';
+import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -20,6 +23,10 @@ const routes: Routes = [
 {path : 'home' , component : HomeComponent},
 {path : 'register' , component : RegisterComponent},
 {path : 'edit' , component : EditcourseComponent},
+{path : 'admin' , component : AdminComponent},
+{path : 'create-teacher' , component : CreateTeacherComponent},
+{path : 'create-student' , component : CreateStudentComponent},
+
 
 ];
 

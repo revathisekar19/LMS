@@ -1,0 +1,122 @@
+<div class="container">
+    <h2>Create Teacher</h2>
+    <form [formGroup]="teacherForm" (ngSubmit)="onSubmit()">
+      <!-- Teacher ID -->
+      <div class="form-group">
+        <label for="teacherId">Teacher ID</label>
+        <input
+          id="teacherId"
+          type="text"
+          class="form-control"
+          formControlName="teacherId"
+        />
+        <small *ngIf="teacherForm.get('teacherId')?.hasError('required') && teacherForm.get('teacherId')?.touched">
+          Teacher ID is required.
+        </small>
+        <small *ngIf="teacherForm.get('teacherId')?.hasError('pattern') && teacherForm.get('teacherId')?.touched">
+          Teacher ID must be numeric.
+        </small>
+      </div>
+  
+      <!-- First Name -->
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input
+          id="firstName"
+          type="text"
+          class="form-control"
+          formControlName="firstName"
+        />
+        <small *ngIf="teacherForm.get('firstName')?.hasError('required') && teacherForm.get('firstName')?.touched">
+          First name is required.
+        </small>
+        <small *ngIf="teacherForm.get('firstName')?.hasError('minlength') && teacherForm.get('firstName')?.touched">
+          First name must be at least 2 characters.
+        </small>
+      </div>
+  
+      <!-- Last Name -->
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input
+          id="lastName"
+          type="text"
+          class="form-control"
+          formControlName="lastName"
+        />
+        <small *ngIf="teacherForm.get('lastName')?.hasError('required') && teacherForm.get('lastName')?.touched">
+          Last name is required.
+        </small>
+        <small *ngIf="teacherForm.get('lastName')?.hasError('minlength') && teacherForm.get('lastName')?.touched">
+          Last name must be at least 2 characters.
+        </small>
+      </div>
+  
+      <!-- Email -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          class="form-control"
+          formControlName="email"
+        />
+        <small *ngIf="teacherForm.get('email')?.hasError('required') && teacherForm.get('email')?.touched">
+          Email is required.
+        </small>
+        <small *ngIf="teacherForm.get('email')?.hasError('email') && teacherForm.get('email')?.touched">
+          Invalid email format.
+        </small>
+      </div>
+  
+      <!-- Phone Number -->
+      <div class="form-group">
+        <label for="phoneNumber">Phone Number</label>
+        <input
+          id="phoneNumber"
+          type="tel"
+          class="form-control"
+          formControlName="phoneNumber"
+        />
+        <small *ngIf="teacherForm.get('phoneNumber')?.hasError('required') && teacherForm.get('phoneNumber')?.touched">
+          Phone number is required.
+        </small>
+        <small *ngIf="teacherForm.get('phoneNumber')?.hasError('pattern') && teacherForm.get('phoneNumber')?.touched">
+          Phone number must be 10 digits.
+        </small>
+      </div>
+  
+      <!-- Office Hours -->
+      <div class="form-group">
+        <label for="officeHours">Office Hours</label>
+        <input
+          id="officeHours"
+          type="text"
+          class="form-control"
+          formControlName="officeHours"
+        />
+        <small *ngIf="teacherForm.get('officeHours')?.hasError('required') && teacherForm.get('officeHours')?.touched">
+          Office hours are required.
+        </small>
+      </div>
+  
+      <!-- Office Location -->
+      <div class="form-group">
+        <label for="officeLocation">Office Location</label>
+        <input
+          id="officeLocation"
+          type="text"
+          class="form-control"
+          formControlName="officeLocation"
+        />
+        <small *ngIf="teacherForm.get('officeLocation')?.hasError('required') && teacherForm.get('officeLocation')?.touched">
+          Office location is required.
+        </small>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="teacherForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+  
