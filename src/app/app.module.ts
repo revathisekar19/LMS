@@ -36,8 +36,10 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
 import { HttpClient, withFetch } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { AdminComponent } from './admin-components/admin/admin.component';
-import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
-import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
+import { CreateTeacherComponent } from './admin-components/teacher-component/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
+import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
+import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
 
 
 @NgModule({
@@ -57,6 +59,8 @@ import { CreateStudentComponent } from './admin-components/create-student/create
    AdminComponent,
    CreateTeacherComponent,
    CreateStudentComponent,
+   ViewStudentComponent,
+   ViewTeacherComponent,
     ],
   imports: [
     BrowserModule,

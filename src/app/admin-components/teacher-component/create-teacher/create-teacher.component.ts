@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RestApiService } from '../../services/rest-api.service';
+import { RestApiService } from '../../../services/rest-api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-teacher',
@@ -10,9 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CreateTeacherComponent implements OnInit{
   teacherForm!: FormGroup;
 
-  constructor(private restApiService : RestApiService,private fb: FormBuilder){}
+  constructor(private restApiService : RestApiService,private fb: FormBuilder,private router : Router){}
   ngOnInit(): void {
     this.teacherForm = this.fb.group({
+      
       teacherId: ['', [Validators.required, Validators.pattern('^[0-9]+$')]],
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
@@ -36,5 +38,13 @@ export class CreateTeacherComponent implements OnInit{
         }
       });
     
+  }
+  onReset() {
+    this.teacherForm.reset();
+  }
+
+  onCancel() {
+    this.router.navigate(['/admin']);
+    console.log('Cancel button clicked');
   }
 }

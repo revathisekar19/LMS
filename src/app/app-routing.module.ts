@@ -10,8 +10,10 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
 import { AdminComponent } from './admin-components/admin/admin.component';
-import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
-import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
+import { CreateTeacherComponent } from './admin-components/teacher-component/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
+import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
+import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -26,7 +28,8 @@ const routes: Routes = [
 {path : 'admin' , component : AdminComponent},
 {path : 'create-teacher' , component : CreateTeacherComponent},
 {path : 'create-student' , component : CreateStudentComponent},
-
+{path : 'view-student' , component : ViewStudentComponent},
+{path : 'view-teacher' , component : ViewTeacherComponent},
 
 ];
 

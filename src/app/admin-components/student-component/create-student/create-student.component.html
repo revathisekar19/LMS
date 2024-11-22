@@ -1,0 +1,66 @@
+<div class="body">
+    <mat-card class="login-card">
+      <mat-card-title style="text-align: center;"> Add Student </mat-card-title>
+      <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  
+        <!-- Student ID -->
+        <mat-form-field appearance="fill">
+          <mat-label>Student ID</mat-label>
+          <input matInput formControlName="studentId" placeholder="Enter Student ID" required />
+          <mat-error *ngIf="studentForm.get('studentId')?.invalid && studentForm.get('studentId')?.touched">
+            Student ID is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- First Name -->
+        <mat-form-field appearance="fill">
+          <mat-label>First Name</mat-label>
+          <input matInput formControlName="firstName" placeholder="Enter First Name" required />
+          <mat-error *ngIf="studentForm.get('firstName')?.invalid && studentForm.get('firstName')?.touched">
+            First name is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Middle Name -->
+        <mat-form-field appearance="fill">
+          <mat-label>Middle Name</mat-label>
+          <input matInput formControlName="middleName" placeholder="Enter Middle Name" />
+        </mat-form-field>
+  
+        <!-- Last Name -->
+        <mat-form-field appearance="fill">
+          <mat-label>Last Name</mat-label>
+          <input matInput formControlName="lastName" placeholder="Enter Last Name" required />
+          <mat-error *ngIf="studentForm.get('lastName')?.invalid && studentForm.get('lastName')?.touched">
+            Last name is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Email -->
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Enter Email" required />
+          <mat-error *ngIf="studentForm.get('email')?.invalid && studentForm.get('email')?.touched">
+            Valid email is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Phone Number -->
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number</mat-label>
+          <input matInput type="tel" formControlName="phoneNumber" placeholder="Enter Phone Number" required />
+          <mat-error *ngIf="studentForm.get('phoneNumber')?.invalid && studentForm.get('phoneNumber')?.touched">
+            Phone number is required.
+          </mat-error>
+        </mat-form-field>
+  
+        <!-- Buttons -->
+        <div class="button-group">
+          <button mat-raised-button color="warn" type="button" (click)="onCancel()">Cancel</button>
+          <button mat-raised-button color="accent" type="button" (click)="onReset()">Reset</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid">Create</button>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+  

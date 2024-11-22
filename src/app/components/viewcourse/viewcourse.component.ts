@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export interface Course {
   id: string;
   code: string;
-  name: string;
+  name: string; 
   description: string;
 }
 

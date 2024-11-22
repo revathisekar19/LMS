@@ -7,9 +7,13 @@ import { Observable } from 'rxjs';
 })
 export class RestApiService {
 
-  private baseUrl = 'http://localhost:8085/learnlo/api/v1/student';
+  private studentUrl = 'http://localhost:8085/learnlo/api/v1/student';
+  private teacherUrl = 'http://localhost:8085/learnlo/api/v1/teacher';
+
 
   constructor(private http : HttpClient) { }
+
+  //creation api
 
   //Course Creation API
   createCourse(data : any): Observable<any>{
@@ -21,9 +25,16 @@ export class RestApiService {
     return this.http.post('http://localhost:8085/learnlo/api/v1/teacher',data);
   }
 
-  //View All Course API
+  //view api
+
+  //get All Course API
   viewCourse(): Observable<any>{
     return this.http.get('http://localhost:8085/learnlo/api/v1/course');
+  }
+
+  //get all teacher api
+  viewTeacher(): Observable<any>{
+    return this.http.get('http://localhost:8085/learnlo/api/v1/teacher');
   }
 
   //get student api
@@ -31,9 +42,18 @@ export class RestApiService {
     return this.http.get('http://localhost:8085/learnlo/api/v1/student');
   }
 
+  //view by id api
+
   //get student by id api
   getStudentById(studentId: string): Observable<any> {
-    return this.http.get(`${this.baseUrl}/${studentId}`);
+    return this.http.get(`${this.studentUrl}/${studentId}`);
   }
+
+  //get teacher by id api
+  getTeacherById(teacherId: string): Observable<any> {
+    return this.http.get(`${this.teacherUrl}/${teacherId}`);
+  }
+
+  //get course by id api
 
 }
