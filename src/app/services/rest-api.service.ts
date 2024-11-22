@@ -9,6 +9,7 @@ export class RestApiService {
 
   private studentUrl = 'http://localhost:8085/learnlo/api/v1/student';
   private teacherUrl = 'http://localhost:8085/learnlo/api/v1/teacher';
+  private coutseUrl  = 'http://localhost:8085/learnlo/api/v1/course';
 
 
   constructor(private http : HttpClient) { }
@@ -55,5 +56,19 @@ export class RestApiService {
   }
 
   //get course by id api
+  getCourseById(courseId: string): Observable<any> {
+    return this.http.get(`${this.teacherUrl}/${courseId}`);
+  }
 
+  //update api
+
+  //update teacher api
+  updateTeacher(teacherId:string,data:any): Observable<any>{
+    return this.http.put(`${this.teacherUrl}/${teacherId}`,data );
+  }
+
+  //update courese api
+  updateCourse(courseId:string,data:any):Observable<any>{
+    return this.http.put(`${this.coutseUrl}/${courseId}`,data);
+  }
 }

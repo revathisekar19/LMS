@@ -74,6 +74,8 @@ export class ViewTeacherComponent implements OnInit{
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
+  editTeacher(teacher: Teacher): void {
+    console.log('Edit Teacher:', teacher);
+  }
 
 }
