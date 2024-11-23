@@ -2,14 +2,14 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { EditcourseComponent } from '../editcourse/editcourse.component';
 import { MatDialog } from '@angular/material/dialog';
-import { RestApiService } from '../../services/rest-api.service';
 import { HttpClient } from '@angular/common/http';
+import { RestApiService } from '../services/rest-api.service';
+import { EditcourseComponent } from '../components/editcourse/editcourse.component';
 export interface Course {
   id: string;
   code: string;
-  name: string;
+  name: string; 
   description: string;
 }
 

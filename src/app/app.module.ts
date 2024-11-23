@@ -13,10 +13,9 @@ import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { CourseComponent } from './components/course/course.component';
+import { CourseComponent } from './course/course.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
-import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
 import { ProfileComponent } from './components/profile/profile.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -36,10 +35,12 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
 import { HttpClient, withFetch } from '@angular/common/http';
 import { provideHttpClient } from '@angular/common/http';
 import { AdminComponent } from './admin-components/admin/admin.component';
-import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
-import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
-import { ViewStudentsComponent } from './admin-components/view-students/view-students.component';
-
+import { CreateTeacherComponent } from './admin-components/teacher-component/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
+import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
+import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
+import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
+import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,6 @@ import { ViewStudentsComponent } from './admin-components/view-students/view-stu
    CourseComponent,
   //  DashboardComponent,
    EnrollComponent,
-   ViewcourseComponent,
    ProfileComponent,
    NavbarComponent,
    HomeComponent,
@@ -58,7 +58,10 @@ import { ViewStudentsComponent } from './admin-components/view-students/view-stu
    AdminComponent,
    CreateTeacherComponent,
    CreateStudentComponent,
-   ViewStudentsComponent,
+   ViewStudentComponent,
+   ViewTeacherComponent,
+   EditTeacherComponent,
+   ViewcourseComponent
     ],
   imports: [
     BrowserModule,

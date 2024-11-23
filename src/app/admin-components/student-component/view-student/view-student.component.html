@@ -1,0 +1,45 @@
+<h2>Student List</h2>
+
+<div *ngIf="errorMessage" class="error">
+  {{ errorMessage }}
+</div>
+
+<table *ngIf="students.length > 0;">
+  <!-- <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>StudentId</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{ student.id }}</td>
+      <td>{{ student.firstName }} {{ student.lastName }}</td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.studentId }}</td>
+    </tr>
+  </tbody> -->
+
+  <div class="table_component" role="region" tabindex="0">
+    <table>
+        <caption>Table 1</caption>
+        <thead>
+            <tr>
+                <th>Serial</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Student ID</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let student of students">
+                <td>{{ student.id }}</td>
+                <td>{{ student.firstName }} {{ student.lastName }}</td>
+                <td>{{ student.email }}</td>
+                <td>{{ student.studentId }}</td>
+            </tr>
+        </tbody>
+
+</table>
