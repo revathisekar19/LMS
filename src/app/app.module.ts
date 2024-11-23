@@ -38,6 +38,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { AdminComponent } from './admin-components/admin/admin.component';
 import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
 import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
+import { ViewStudentsComponent } from './admin-components/view-students/view-students.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { CreateStudentComponent } from './admin-components/create-student/create
    AdminComponent,
    CreateTeacherComponent,
    CreateStudentComponent,
+   ViewStudentsComponent,
     ],
   imports: [
     BrowserModule,

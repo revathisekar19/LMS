@@ -12,6 +12,7 @@ import { EditcourseComponent } from './components/editcourse/editcourse.componen
 import { AdminComponent } from './admin-components/admin/admin.component';
 import { CreateTeacherComponent } from './admin-components/create-teacher/create-teacher.component';
 import { CreateStudentComponent } from './admin-components/create-student/create-student.component';
+import { ViewStudentsComponent } from './admin-components/view-students/view-students.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
 {path : 'admin' , component : AdminComponent},
 {path : 'create-teacher' , component : CreateTeacherComponent},
 {path : 'create-student' , component : CreateStudentComponent},
+{path : 'student/view' , component : ViewStudentsComponent},
 
 
 ];
