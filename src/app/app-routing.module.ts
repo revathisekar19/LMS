@@ -15,6 +15,7 @@ import { ViewStudentComponent } from './admin-components/student-component/view-
 import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
 import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
+import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
 
 const routes: Routes = [
 {path : '' , component : LoginComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
 {path : 'create-student' , component : CreateStudentComponent},
 {path : 'view-student' , component : ViewStudentComponent},
 {path : 'view-teacher' , component : ViewTeacherComponent},
+{path : 'edit-student' , component : EditStudentComponent},
 {path : 'edit-teacher' , component : EditTeacherComponent},
 
 

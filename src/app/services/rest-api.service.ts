@@ -43,6 +43,11 @@ export class RestApiService {
     return this.http.get('http://localhost:8085/learnlo/api/v1/student');
   }
 
+  updateStudent(student: any): Observable<any> {
+    return this.http.put(`http://localhost:8085/learnlo/api/v1/student/${student.studentId}`, student);
+  }
+  
+
   //view by id api
 
   //get student by id api
