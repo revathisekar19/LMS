@@ -13,7 +13,7 @@ import { CreateTeacherComponent } from './admin-components/teacher-component/cre
 import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
 import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
 import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
-import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
+// import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
 
@@ -33,7 +33,7 @@ const routes: Routes = [
 {path : 'view-student' , component : ViewStudentComponent},
 {path : 'view-teacher' , component : ViewTeacherComponent},
 {path : 'edit-student' , component : EditStudentComponent},
-{path : 'edit-teacher' , component : EditTeacherComponent},
+// {path : 'edit-teacher' , component : EditTeacherComponent},
 
 
 ];

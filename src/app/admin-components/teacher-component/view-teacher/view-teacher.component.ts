@@ -1,7 +1,10 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { RestApiService } from '../../../services/rest-api.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 export interface Teacher {
   id: string;
@@ -35,49 +38,81 @@ export class ViewTeacherComponent implements OnInit{
   length: number = 0;
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
-
-  constructor(private router : Router) {
+  @ViewChild('editTeacherForm') editTeacherFormTemplate!: TemplateRef<any>;
+  
+  editForm!: FormGroup;
+  dialogRef: any;
+  constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
+    private dialog: MatDialog) {
   
   }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
+    this.viewTeacher();
+    this.initializeForm();
 
-    // Simulate API response
-    const teachers: Teacher[] = [
-      {
-        id: '1',
-        firstName: 'John',
-        middleName: 'A.',
-        lastName: 'Doe',
-        email: 'john.doe@example.com',
-        phoneNumber: '1234567890',
-        teacherId: 'T001',
-        officeHours: 'Mon-Fri 9AM-5PM',
-        officeLocation: 'Room 101'
-      },
-      {
-        id: '2',
-        firstName: 'Jane',
-        middleName: 'B.',
-        lastName: 'Smith',
-        email: 'jane.smith@example.com',
-        phoneNumber: '0987654321',
-        teacherId: 'T002',
-        officeHours: 'Mon-Fri 10AM-4PM',
-        officeLocation: 'Room 102'
-      }
-    ];
-
-    this.dataSource.data = teachers;
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-  editTeacher(teacher: Teacher): void {
-    this.router.navigate(['/edit-teacher']);
-    console.log('Edit Teacher:', teacher);
+  // editTeacher(teacher: Teacher): void {
+  //   this.router.navigate(['/edit-teacher']);
+  //   console.log('Edit Teacher:', teacher);
+  // }
+  initializeForm(): void {
+    this.editForm = this.fb.group({
+      teacherId: [''],
+      firstName: [''],
+      middleName: [''],
+      lastName: [''],
+      email: [''],
+      phoneNumber: [''],
+      officeHours: [''],
+      officeLocation: [''],
+    });
   }
 
+  viewTeacher():void{
+    this.restApiService.viewTeacher().subscribe({
+      next:(data : any)=>{
+        console.log("Teacher data",data);
+        this.dataSource.data = data;
+      },
+      error:(error : any)=>{
+        console.log("Teacher error",error);
+      }
+      });
+  }
+
+  editTeacher(teacher: Teacher): void {
+    this.editForm.patchValue(teacher);
+     this.dialogRef = this.dialog.open(this.editTeacherFormTemplate, {
+      width: '600px',
+    });
+  }
+
+  saveTeacher(): void {
+    if (this.editForm.valid) {
+      const updatedTeacher = this.editForm.value;
+      console.log("ut",updatedTeacher);
+      this.restApiService.updateTeacher(updatedTeacher.teacherId, updatedTeacher).subscribe({
+        next: (response) => {
+          console.log('Teacher updated successfully:', response);
+          this.closeDialog();
+        },
+        error: (error) => {
+          console.error('Error updating teacher:', error);
+        },
+      });
+    }
+  }
+
+
+  closeDialog(): void {
+    if (this.dialogRef) {
+      this.dialogRef.close();
+    }
+  }
 }
