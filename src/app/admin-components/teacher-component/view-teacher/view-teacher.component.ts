@@ -39,8 +39,10 @@ export class ViewTeacherComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild('editTeacherForm') editTeacherFormTemplate!: TemplateRef<any>;
-  
+  @ViewChild('assignRoleForm') assignRoleFormTemplate!: TemplateRef<any>;
+
   editForm!: FormGroup;
+  assignForm!: FormGroup;
   dialogRef: any;
   constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
     private dialog: MatDialog) {
@@ -71,6 +73,11 @@ export class ViewTeacherComponent implements OnInit{
       phoneNumber: [''],
       officeHours: [''],
       officeLocation: [''],
+    });
+    this.assignForm = this.fb.group({
+      userId: [''],
+      password: [''],
+      role: [''],
     });
   }
 
@@ -110,9 +117,41 @@ export class ViewTeacherComponent implements OnInit{
   }
 
 
+  openAssignDialog(teacher: any): void {
+    this.assignForm.patchValue({
+      userId: teacher.teacherId,
+      password: '',
+      role: 'TEACHER', 
+    });
+
+    // Open the assign dialog
+    this.dialog.open(this.assignRoleFormTemplate, {
+      width: '400px',
+      data: teacher,
+    });
+  }
+
+  assignRole(){
+    if(this.assignForm.valid){
+    const formData = this.assignForm.value;
+    this.restApiService.createRole(formData).subscribe({
+      next: (response) => {
+        console.log('Role:', response);
+        this.closeDialog();
+      },
+      error: (error) => {
+        console.error('Role Error:', error.error);
+      },
+
+    });
+  }}
+
   closeDialog(): void {
     if (this.dialogRef) {
       this.dialogRef.close();
+    }
+    if(this.dialog){
+      this.dialog.closeAll();
     }
   }
 }

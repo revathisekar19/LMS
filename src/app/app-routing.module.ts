@@ -18,12 +18,12 @@ import { EditStudentComponent } from './admin-components/student-component/edit-
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
 
+
 const routes: Routes = [
 {path : '' , component : LoginComponent},
 // {path : 'dashboard' , component : DashboardComponent},
 {path : 'course' , component : CourseComponent},
 {path : 'enroll' , component : EnrollComponent},
-// {path : 'view', component : ViewcourseComponent},
 {path : 'profile' , component : ProfileComponent},
 {path : 'home' , component : HomeComponent},
 {path : 'register' , component : RegisterComponent},
@@ -35,8 +35,8 @@ const routes: Routes = [
 {path : 'view-teacher' , component : ViewTeacherComponent},
 {path : 'edit-student' , component : EditStudentComponent},
 {path : 'view-course' , component : ViewCourseComponent},
-{path : 'navbar' , component : NavbarComponent}
-// {path : 'edit-teacher' , component : EditTeacherComponent},
+{path : 'navbar' , component : NavbarComponent},
+
 
 
 ];
