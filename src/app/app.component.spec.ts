@@ -7,7 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { CourseComponent } from './course/course.component';
+import { CourseComponent } from './admin-components/course-component/course/course.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
 import { RegisterComponent } from './components/register/register.component';

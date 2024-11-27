@@ -47,6 +47,16 @@ password = 'password1';
     return this.http.post('http://localhost:8085/learnlo/api/v1/teacher',data,{headers});
   }
 
+  //student creation api
+  createStudent(data : any): Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.post('http://localhost:8085/learnlo/api/v1/student',data,{headers});
+  }
+
   //view api
 
   //get All Course API
@@ -77,15 +87,6 @@ password = 'password1';
             Authorization: authHeader
         });
     return this.http.get('http://localhost:8085/learnlo/api/v1/student',{headers});
-  }
-
-  updateStudent(student: any): Observable<any> {
-    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
-    const headers = new HttpHeaders({
-           'Content-Type': 'application/json',
-            Authorization: authHeader
-        });
-    return this.http.put(`http://localhost:8085/learnlo/api/v1/student/${student.studentId}`, student,{headers});
   }
   
 
@@ -141,5 +142,14 @@ password = 'password1';
             Authorization: authHeader
         });
     return this.http.put(`${this.coutseUrl}/${courseId}`,data,{headers});
+  }
+  //update student api
+  updateStudent(studentId: any,data:any): Observable<any> {
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.put(`${this.studentUrl}/${studentId}`,data,{headers});
   }
 }

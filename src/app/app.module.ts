@@ -13,7 +13,7 @@ import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { CourseComponent } from './course/course.component';
+import { CourseComponent } from './admin-components/course-component/course/course.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
 import { ProfileComponent } from './components/profile/profile.component'
@@ -42,7 +42,7 @@ import { ViewTeacherComponent } from './admin-components/teacher-component/view-
 import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
-import { ViewCourseComponent } from './view-course/view-course.component';
+import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
 
 @NgModule({
   declarations: [

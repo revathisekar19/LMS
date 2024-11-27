@@ -13,37 +13,8 @@ export class EditStudentComponent implements OnInit {
   constructor(private restApiService: RestApiService) {}
 
   ngOnInit(): void {
-    this.fetchStudents();
   }
 
-  viewDetails(studentId: string){
-    console.log("Nothing is " + studentId)
-  }
-
-  fetchStudents(): void {
-    this.restApiService.getStudent().subscribe(
-      (data) => {
-        this.students = data; // Store the fetched data
-        console.log('Students fetched successfully:', this.students);
-      },
-      (error) => {
-        this.errorMessage = 'Failed to fetch student data.';
-        console.error('Error fetching students:', error);
-      }
-    );
-  }
-
-  updateStudent(student: any): void {
-    this.restApiService.updateStudent(student).subscribe(
-      (response) => {
-        console.log('Student updated successfully:', response);
-        alert('Student updated successfully!');
-      },
-      (error) => {
-        console.error('Error updating student:', error);
-        alert('Failed to update student. Please try again.');
-      }
-    );
-  }
+  
   
 }

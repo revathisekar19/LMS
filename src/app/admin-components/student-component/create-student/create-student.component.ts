@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { RestApiService } from '../../../services/rest-api.service';
 
 @Component({
   selector: 'app-create-student',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class CreateStudentComponent {
   studentForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private router : Router) {
+  constructor(private fb: FormBuilder,private router : Router,private restApiService : RestApiService) {
     this.studentForm = this.fb.group({
       studentId: ['', [Validators.required]],
       firstName: ['', [Validators.required]],
@@ -22,12 +23,18 @@ export class CreateStudentComponent {
   }
 
   onSubmit() {
-    if (this.studentForm.valid) {
-      console.log('Student Data:', this.studentForm.value);
-    } else {
-      console.error('Form is invalid!');
-    }
+    console.log(this.studentForm.value);
+    this.restApiService.createStudent(this.studentForm.value).subscribe({
+      next : (res : any)=>{ 
+        console.log("Student created",res);
+        this.studentForm.reset();
+      },
+      error : (error : any) => {
+        console.log("Student Error",error);
+      }
+    });
   }
+  
   onCancel() {
     this.router.navigate(['/admin']);
     console.log('Cancel button clicked');
