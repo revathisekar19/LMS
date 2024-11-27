@@ -42,6 +42,7 @@ import { ViewTeacherComponent } from './admin-components/teacher-component/view-
 import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
 import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
+import { ViewCourseComponent } from './view-course/view-course.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { EditStudentComponent } from './admin-components/student-component/edit-
    ViewTeacherComponent,
    EditTeacherComponent,
    ViewcourseComponent,
-   EditStudentComponent
+   EditStudentComponent,
+   ViewCourseComponent
     ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<div *ngIf="userRole === 'student'">
+<div *ngIf="userRole === 'STUDENT'">
   <div class="cards">
     <mat-card class="example-card" [routerLink]="['/']">
 
@@ -40,7 +40,7 @@
 </div>
 </div>
 
-<div *ngIf="userRole === 'teacher'">
+<div *ngIf="userRole === 'TEACHER'">
   <div class="cards">
     <mat-card class="example-card" [routerLink]="['/']">
 
@@ -83,3 +83,45 @@
 
 </div>
 
+
+<div *ngIf="userRole === 'ADMIN'">
+  <div class="cards">
+    <mat-card class="example-card" [routerLink]="['/']">
+
+        <div style="background-color:#51AF9D;" class="courseone">
+     
+        </div>
+         <mat-card-content>
+           <p>
+             Foundations of Software Engineering
+           </p>
+         </mat-card-content>
+     </mat-card>
+     
+     <mat-card class="example-card" [routerLink]="['/']">
+     
+         <div style="background-color: #6279BF;" class="courseone">
+      
+         </div>
+          <mat-card-content>
+            <p>
+              Project Management for Software Engineering
+            </p>
+          </mat-card-content>
+     </mat-card>
+     
+     <mat-card class="example-card" [routerLink]="['/']">
+     
+         <div style="background-color: #ED9DC0;" class="courseone">
+      
+         </div>
+          <mat-card-content>
+            <p>
+              Software Dev Methods and Tools
+            </p>
+          </mat-card-content>
+     </mat-card>
+        
+        
+</div>
+</div>

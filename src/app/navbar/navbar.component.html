@@ -57,7 +57,7 @@
 </mat-drawer-container> -->
 
 
-<div *ngIf="userRole === 'student'">
+<div *ngIf="userRole === 'STUDENT'">
   <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
@@ -118,7 +118,7 @@
 
 </div>
 
-<div *ngIf="userRole === 'teacher'">
+<div *ngIf="userRole === 'TEACHER'">
   <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
@@ -184,7 +184,7 @@
 
 
 
-<div *ngIf="userRole === 'admin'">
+<div *ngIf="userRole === 'ADMIN'">
   <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>

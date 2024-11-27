@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
 import { MatDialog } from '@angular/material/dialog';
+import { RestApiService } from '../services/rest-api.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   email: string = '';
   password: string = '';
   loginForm: FormGroup;
@@ -18,14 +19,16 @@ export class LoginComponent {
 
 
   constructor(private fb: FormBuilder,private router : Router, private loginservice : LoginService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog, private restApiService : RestApiService) {
     this.loginForm = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['', Validators.required],
-      firstName: ['', [Validators.required]]
+      userId: ['', [Validators.required]],
+
 
     });
+  }
+  ngOnInit(): void {
+    this.onSubmit();
   }
 
   togglePasswordVisibility() {
@@ -33,15 +36,30 @@ export class LoginComponent {
   }
   
   onSubmit() {
-    console.log("logged in")
-    const role = this.loginForm.get('role')?.value;
-    const firstName = this.loginForm.get('firstName')?.value;
-    sessionStorage.setItem('role', role);
-    console.log(role);
-    sessionStorage.setItem('firstName', firstName);
-     this.loginservice.login();
-     this.router.navigate(['/home']);
-
+    const userId = this.loginForm.value.userId;
+    this.restApiService.login(userId).subscribe({
+      next:(res:any)=>{
+        console.log(res);
+        sessionStorage.setItem('userRole', res.role);
+        this.loginservice.login();
+        switch (res.role) {
+          case 'STUDENT':
+            this.router.navigate(['/navbar']);
+            break;
+          case 'TEACHER':
+            this.router.navigate(['/navbar']);
+            break;
+          case 'ADMIN':
+            this.router.navigate(['/navbar']);
+            break;
+          default:
+            alert('Unknown role. Please contact support.');
+        }
+      },
+      error:(error :any)=>{
+        console.log(error);
+      }
+    });
   }
 
   goToRegistration() {
