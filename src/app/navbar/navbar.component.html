@@ -57,14 +57,14 @@
 </mat-drawer-container> -->
 
 
-<div *ngIf="userRole === 'student'">
+<div *ngIf="userRole === 'STUDENT'">
   <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
-           <mat-icon>directions_boat</mat-icon>
+           <mat-icon>local_library</mat-icon>
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
@@ -118,14 +118,14 @@
 
 </div>
 
-<div *ngIf="userRole === 'teacher'">
+<div *ngIf="userRole === 'TEACHER'">
   <mat-toolbar color="primary" class="mat-elevation-z8">
     <button  mat-icon-button (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>
         <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
-           <mat-icon>directions_boat</mat-icon>
+           <mat-icon>local_library</mat-icon>
        </button>LearnIo
     </span>
     <span class="example-spacer"></span>
@@ -181,3 +181,108 @@
 </mat-drawer-container>
 
 </div>
+
+
+
+<div *ngIf="userRole === 'ADMIN'">
+  <mat-toolbar color="primary" class="mat-elevation-z8">
+    <button  mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>
+        <button mat-mini-fab style="margin-right: 10% ; margin-left: 10%">
+           <mat-icon>local_library</mat-icon>
+       </button>LearnIo
+    </span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="profileMenu" aria-label="Profile icon-button">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #profileMenu="matMenu">
+      <div style="padding: 8px; font-weight: bold;">
+        Hello, {{ userName || 'Guest' }}
+      </div>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+</mat-toolbar>
+<mat-drawer-container>
+    <mat-drawer #drawer opened mode="side" position="start">
+      <mat-nav-list>
+        <mat-list-item routerLink="/admin">
+          <button mat-button>
+            <mat-icon>home</mat-icon>
+            Dashboard
+          </button>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <button mat-button [matMenuTriggerFor]="userMenu">
+            <mat-icon>face</mat-icon>Users
+          </button>
+          <mat-menu #userMenu="matMenu">
+            <!-- Teacher Menu -->
+            <button mat-menu-item [matMenuTriggerFor]="teacherMenu">Teacher</button>
+            <mat-menu #teacherMenu="matMenu">
+              <button mat-menu-item routerLink="/create-teacher">Create<mat-icon>add</mat-icon></button>
+              <button mat-menu-item routerLink="/view-teacher">View<mat-icon>visibility</mat-icon></button>
+              <!-- <button mat-menu-item routerLink="/edit-teacher">Edit<mat-icon>edit</mat-icon></button> -->
+              <!-- <button mat-menu-item routerLink="/delete-teacher">Delete<mat-icon>delete</mat-icon></button> -->
+            </mat-menu>
+        
+            <!-- Student Menu -->
+            <button mat-menu-item [matMenuTriggerFor]="studentMenu">Student</button>
+            <mat-menu #studentMenu="matMenu">
+              <button mat-menu-item routerLink="/create-student" >Create<mat-icon>add</mat-icon></button>
+              <button mat-menu-item routerLink="/view-student">View<mat-icon>visibility</mat-icon></button>
+              <!-- <button mat-menu-item routerLink="/edit-student">Edit<mat-icon>edit</mat-icon></button> -->
+              <!-- <button mat-menu-item routerLink="/delete-student">Delete<mat-icon>delete</mat-icon></button> -->
+            </mat-menu>
+          </mat-menu>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <button mat-button [matMenuTriggerFor]="menu"><mat-icon>book</mat-icon>Courses</button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item routerLink="/course" >Create<mat-icon>add</mat-icon></button>
+                    <button mat-menu-item routerLink="/view-course">View<mat-icon>visibility</mat-icon></button>
+                    <!-- <button mat-menu-item routerLink="/edit">Edit<mat-icon>edit</mat-icon></button> -->
+                    <!-- <button mat-menu-item routerLink="/student/delete">Delete<mat-icon>delete</mat-icon></button> -->
+                </mat-menu>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+
+        <mat-list-item>
+          <button mat-button [matMenuTriggerFor]="roleMenu">
+            <mat-icon>badge</mat-icon>Role
+          </button>
+          <mat-menu #roleMenu="matMenu">
+            <button mat-menu-item routerLink="/create-role">
+              Create<mat-icon>add</mat-icon>
+            </button>
+            <button mat-menu-item routerLink="/view-role">
+              View<mat-icon>visibility</mat-icon>
+            </button>
+          </mat-menu>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        
+      </mat-nav-list>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div style="text-align: center;min-height: 820px;">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+
+    </mat-drawer-content>
+
+</mat-drawer-container>
+
+</div>
+
+

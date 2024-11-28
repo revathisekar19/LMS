@@ -13,10 +13,9 @@ import { LoginComponent } from './login/login.component';
 import {MatIconModule} from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
-import { CourseComponent } from './components/course/course.component';
+import { CourseComponent } from './admin-components/course-component/course/course.component';
 // import { DashboardComponent } from './dashboard/dashboard.component';
 import { EnrollComponent } from './components/enrollcourse/enroll.component';
-import { ViewcourseComponent } from './components/viewcourse/viewcourse.component';
 import { ProfileComponent } from './components/profile/profile.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -33,7 +32,17 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { RegisterComponent } from './components/register/register.component';
 import { EditcourseComponent } from './components/editcourse/editcourse.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, withFetch } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
+import { AdminComponent } from './admin-components/admin/admin.component';
+import { CreateTeacherComponent } from './admin-components/teacher-component/create-teacher/create-teacher.component';
+import { CreateStudentComponent } from './admin-components/student-component/create-student/create-student.component';
+import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
+import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
+import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
+import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
+import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
+
 
 @NgModule({
   declarations: [
@@ -42,13 +51,21 @@ import { HttpClient } from '@angular/common/http';
    CourseComponent,
   //  DashboardComponent,
    EnrollComponent,
-   ViewcourseComponent,
    ProfileComponent,
    NavbarComponent,
    HomeComponent,
    FooterComponent,
    RegisterComponent,
    EditcourseComponent,
+   AdminComponent,
+   CreateTeacherComponent,
+   CreateStudentComponent,
+   ViewStudentComponent,
+   ViewTeacherComponent,
+   EditTeacherComponent,
+   EditStudentComponent,
+   ViewCourseComponent,
+   
     ],
   imports: [
     BrowserModule,
@@ -71,9 +88,11 @@ import { HttpClient } from '@angular/common/http';
     MatPaginatorModule,
     MatTableModule,
     MatDialogModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
+    provideHttpClient(withFetch()),
     provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
