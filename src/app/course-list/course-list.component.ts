@@ -13,7 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class CourseListComponent implements OnInit{
   courses: any[] = [];
-  displayedColumns: string[] = ['courseCode', 'venue', 'mode', 'daysAndTime'];
+  displayedColumns: string[] = ['courseCode', 'venue', 'mode', 'daysAndTime', 'actions'];
 
   constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
     private dialog: MatDialog){}
@@ -36,10 +36,27 @@ export class CourseListComponent implements OnInit{
       next:(data : any)=>{
         console.log("Course data",data);
         this.courses = data;
+        this.dataSource.data = this.courses;
       },
       error:(error : any)=>{
         console.log("Course error",error);
       }
     });
   }
+
+  enroll(course: any) {
+    // Log the course object
+    console.log('Enrolling in course:', course);
+  
+    // Call the restApiService.enrollStudent method
+    this.restApiService.enrollStudent(course).subscribe({
+      next: (response) => {
+        console.log('Student enrolled successfully:', response);
+      },
+      error: (error) => {
+        console.error('Enrollment error:', error);
+      }
+    });
+  }
+  
 }
