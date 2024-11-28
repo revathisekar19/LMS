@@ -8,7 +8,7 @@
     </div>
 </div>
 
-<div *ngIf="userRole === 'student'">
+<div *ngIf="userRole === 'STUDENT'">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Profile Information</mat-card-title>
@@ -24,17 +24,18 @@
   </mat-card>
 </div>
 
-<div *ngIf="userRole === 'teacher'">
+<div *ngIf="userRole === 'TEACHER'">
   <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Profile Information</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Name : {{userName}}</p>
-      <p>Role : {{userRole}}</p>
-      <p>Email : john&#64;gmail.com</p>
-      <p>Faculty : Engineering and Applied Science</p>
-    
+      <p><strong>Name:</strong> {{ teacherProfile.firstName }} {{ teacherProfile.middleName }} {{ teacherProfile.lastName }}</p>
+      <p><strong>Role:</strong> {{ userRole }}</p>
+      <p><strong>Email:</strong> {{ teacherProfile.email }}</p>
+      <p><strong>Phone Number:</strong> {{ teacherProfile.phoneNumber }}</p>
+      <p><strong>Office Hours:</strong> {{ teacherProfile.officeHours }}</p>
+      <p><strong>Office Location:</strong> {{ teacherProfile.officeLocation }}</p>
     </mat-card-content>
   </mat-card>
 </div>

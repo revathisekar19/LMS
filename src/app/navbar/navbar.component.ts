@@ -13,7 +13,7 @@ export class NavbarComponent {
   constructor(private loginservice : LoginService){
     this.userName = sessionStorage.getItem('firstName') || '';
     this.userRole = sessionStorage.getItem('userRole') || '';
-    console.log('userrole',this.userRole);
+    console.log('userole',this.userRole);
   }
   logout(){
     sessionStorage.clear();
