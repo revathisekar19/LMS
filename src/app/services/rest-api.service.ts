@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,38 +22,7 @@ password = 'password1';
            'Content-Type': 'application/json',
             Authorization: authHeader
         });
-    // return this.http.get(`${this.userUrl}/${userId}`,{headers})
-
-    const urls = [
-      `${this.userUrl}/${userId}`,  // first URL
-      `${this.studentUrl}/${userId}`,  // second URL
-      `${this.teacherUrl}/${userId}`  // third URL
-  ];
-
-    return this.http.get(urls[0], { headers }).pipe(
-      catchError(error => {
-          if (error.status === 404) {
-              // If 404 error occurs, try the next URL
-              return this.http.get(urls[1], { headers }).pipe(
-                  catchError(error => {
-                      if (error.status === 404) {
-                          // If the second URL also returns 404, try the next one
-                          return this.http.get(urls[2], { headers }).pipe(
-                              catchError(err => {
-                                  // If the third URL returns 404 as well, return an error message
-                                  return of(`Error: User with ID ${userId} not found.`);
-                              })
-                          );
-                      }
-                      // Handle any other errors from the second URL
-                      return of(`Error: ${error.message}`);
-                  })
-              );
-          }
-          // Handle any other errors from the first URL
-          return of(`Error: ${error.message}`);
-      })
-  );
+    return this.http.get(`${this.userUrl}/${userId}`,{headers})
   }
 
   //creation api
