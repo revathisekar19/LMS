@@ -61,3 +61,14 @@ mat-card-actions button {
   font-size: 0.9rem;
   font-weight: 600;
 }
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+.courseone {
+  height: 50px;
+  width: 100%;
+  border-radius: 5px;
+}

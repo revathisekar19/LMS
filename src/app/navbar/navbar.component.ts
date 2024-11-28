@@ -11,7 +11,7 @@ export class NavbarComponent {
   userName: string = '';
   userRole : string = '';
   constructor(private loginservice : LoginService){
-    this.userName = sessionStorage.getItem('firstName') || '';
+    this.userName = sessionStorage.getItem('userName') || '';
     this.userRole = sessionStorage.getItem('userRole') || '';
     console.log('userole',this.userRole);
   }

@@ -11,11 +11,14 @@ export class ProfileComponent implements OnInit{
   userRole : string = '';
   userId : string = '';
   teacherProfile: any = {};
+  studentProfile: any = {};
+
   constructor( private restApiService : RestApiService ){}
   ngOnInit(): void {
     this.getStudent();
     this.getTeacherById();
-    this.userName = sessionStorage.getItem('firstName') || '';
+    this.getStudentById();
+    this.userName = sessionStorage.getItem('userName') || '';
     this.userRole = sessionStorage.getItem('userRole') || '';
     }
 
@@ -38,7 +41,7 @@ export class ProfileComponent implements OnInit{
       next : (res : any)=>{ 
         console.log("Teacher list",res);
         this.teacherProfile = res;
-        const userName = sessionStorage.setItem('firstName', res.firstName);
+        // const userName = sessionStorage.setItem('firstName', res.firstName);
 
       },
       error : (error : any) => {
@@ -46,4 +49,19 @@ export class ProfileComponent implements OnInit{
       }
     })
   }
+
+  //get all student by id
+  getStudentById(){
+    this.userId = sessionStorage.getItem('userId') || '';
+    this.restApiService.getStudentById(this.userId).subscribe({
+      next : (res : any)=>{ 
+        console.log("Teacher list",res);
+        this.studentProfile = res;
+      },
+      error : (error : any) => {
+        console.log("Teacher error",error);
+      }
+    });
+  }
+
 }

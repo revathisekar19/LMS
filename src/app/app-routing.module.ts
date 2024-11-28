@@ -18,6 +18,7 @@ import { EditStudentComponent } from './admin-components/student-component/edit-
 import { NavbarComponent } from './navbar/navbar.component';
 import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
 import { CourseListComponent } from './course-list/course-list.component';
+import { ViewStudentcourseComponent } from './view-studentcourse/view-studentcourse.component';
 
 
 const routes: Routes = [
@@ -37,7 +38,9 @@ const routes: Routes = [
 {path : 'edit-student' , component : EditStudentComponent},
 {path : 'view-course' , component : ViewCourseComponent},
 {path : 'navbar' , component : NavbarComponent},
-{path : 'course-list' , component : CourseListComponent}
+{path : 'course-list' , component : CourseListComponent},
+{path : 'view-studentcourse' , component : ViewStudentcourseComponent}
+
 
 
 ];

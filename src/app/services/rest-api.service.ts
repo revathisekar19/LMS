@@ -172,6 +172,15 @@ private baseUrl = 'http://localhost:8085/learnlo/api/v1';
         });
     return this.http.get(`http://localhost:8085/learnlo/api/v1/enrollment?teacherCourseId=${teachercourseId}`,{headers})
   }
+
+  getStudentCourseById(studentId:string):Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.get(`http://localhost:8085/learnlo/api/v1/enrollment?studentId=${studentId}`,{headers});
+  }
   //update api
 
   //update teacher api
@@ -206,7 +215,7 @@ private baseUrl = 'http://localhost:8085/learnlo/api/v1';
   enrollStudent(course: any): Observable<any> {
     // Log the course object
     console.log('Course object in enrollStudent:', course);
-    const authHeader = 'Basic ' + btoa(`${sessionStorage.getItem('userId')}:${sessionStorage.getItem('userId')}`);
+    const authHeader = 'Basic ' + btoa(`${sessionStorage.getItem('userId')}:${sessionStorage.getItem('userPwd')}`);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': authHeader

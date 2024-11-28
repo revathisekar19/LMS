@@ -14,12 +14,12 @@
       <mat-card-title>Profile Information</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <p>Name : {{userName}}</p>
-      <p>Student ID : 123456789</p>
-      <p>Email : john&#64;gmail.com</p>
-      <p>Faculty : Engineering and Applied Science</p>
-      <p>Program : Master of Engineering</p>
-      <p>Major : Software Engineering</p>
+      <p><strong>Name:</strong> {{ studentProfile.firstName }} {{ studentProfile.middleName }} {{ studentProfile.lastName }}</p>
+      <p><strong>Role:</strong> {{ userRole }}</p>
+      <p><strong>Email:</strong> {{ studentProfile.email }}</p>
+      <p><strong>Phone Number:</strong> {{ studentProfile.phoneNumber }}</p>
+      <p><strong>ID:</strong> {{ studentProfile.studentId }}</p>
+
     </mat-card-content>
   </mat-card>
 </div>
@@ -32,6 +32,7 @@
     <mat-card-content>
       <p><strong>Name:</strong> {{ teacherProfile.firstName }} {{ teacherProfile.middleName }} {{ teacherProfile.lastName }}</p>
       <p><strong>Role:</strong> {{ userRole }}</p>
+      <p><strong>ID:</strong> {{ teacherProfile.teacherId }}</p>
       <p><strong>Email:</strong> {{ teacherProfile.email }}</p>
       <p><strong>Phone Number:</strong> {{ teacherProfile.phoneNumber }}</p>
       <p><strong>Office Hours:</strong> {{ teacherProfile.officeHours }}</p>

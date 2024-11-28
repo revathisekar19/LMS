@@ -54,7 +54,7 @@ export class CourseListComponent implements OnInit{
         console.log('Student enrolled successfully:', response);
       },
       error: (error) => {
-        console.error('Enrollment error:', error);
+        console.error('Enrollment error:', error.error);
       }
     });
   }

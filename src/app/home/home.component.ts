@@ -21,7 +21,8 @@ export class HomeComponent implements OnInit{
     'daysAndTime',
   ];
   enrollmentDetails: any;
-
+  courseDetails:any;
+  enrolledCourses: any[] = [];
   constructor(private restApiService : RestApiService){
     this.userRole = sessionStorage.getItem('userRole') || '';
     this.userId = sessionStorage.getItem('userId') || '';
@@ -29,6 +30,9 @@ export class HomeComponent implements OnInit{
   ngOnInit(): void {
     if (this.userRole === 'TEACHER') {
       this.fetchTeacherCourses();
+    }
+    if(this.userRole === 'STUDENT'){
+      this.getEnrolledCourses();
     }
   }
   fetchTeacherCourses(){
@@ -45,6 +49,7 @@ export class HomeComponent implements OnInit{
   }
   viewCourseDetails(course: any): void {
     const teacherCourseId = course.teacherCourseId;
+
     this.restApiService.getStudentCourse(teacherCourseId).subscribe({
       next:(data : any)=>{
         console.log('Enrollment Details:',data);
@@ -53,7 +58,19 @@ export class HomeComponent implements OnInit{
       error:(error : any)=>{
         console.error('Error fetching enrollment details:',error);
       }
-
     });
+   
+  }
+
+  getEnrolledCourses(){
+    this.restApiService.getStudentCourseById(this.userId).subscribe({
+      next:(data : any)=>{
+        console.log('Enrollment Details:',data);
+        this.enrolledCourses = data;
+      },
+      error:(error : any)=>{
+        console.error('Error fetching enrolled courses:',error);
+      }
+    })
   }
 }

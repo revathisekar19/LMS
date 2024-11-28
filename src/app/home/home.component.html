@@ -1,42 +1,20 @@
 <div *ngIf="userRole === 'STUDENT'">
-  <div class="cards">
-    <mat-card class="example-card" [routerLink]="['/']">
-
-        <div style="background-color:#51AF9D;" class="courseone">
-     
-        </div>
-         <mat-card-content>
-           <p>
-             Foundations of Software Engineering
-           </p>
-         </mat-card-content>
-     </mat-card>
-     
-     <mat-card class="example-card" [routerLink]="['/']">
-     
-         <div style="background-color: #6279BF;" class="courseone">
-      
-         </div>
-          <mat-card-content>
-            <p>
-              Project Management for Software Engineering
-            </p>
-          </mat-card-content>
-     </mat-card>
-     
-     <mat-card class="example-card" [routerLink]="['/']">
-     
-         <div style="background-color: #ED9DC0;" class="courseone">
-      
-         </div>
-          <mat-card-content>
-            <p>
-              Software Dev Methods and Tools
-            </p>
-          </mat-card-content>
-     </mat-card>
-        
-        
+  <h2>Enrolled Courses</h2>
+<div class="courses-container">
+  <mat-card *ngFor="let course of enrolledCourses" class="course-card">
+    <mat-card-header>
+      <mat-card-title>Course Code: {{ course.courseCode }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Venue:</strong> {{ course.venue }}</p>
+      <p><strong>Mode:</strong> {{ course.mode }}</p>
+      <p><strong>Days & Time:</strong> {{ course.daysAndTime }}</p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" routerLink="/view-studentcourse">View Details</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
 </div>
 

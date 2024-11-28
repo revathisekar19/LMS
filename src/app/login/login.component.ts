@@ -37,17 +37,21 @@ export class LoginComponent implements OnInit{
   
   onSubmit() {
     const userId = this.loginForm.value.userId;
+    const password = this.loginForm.value.password;
     this.restApiService.login(userId).subscribe({
       next:(res:any)=>{
         sessionStorage.setItem('userRole', res.role);
+        sessionStorage.setItem('userPwd', password);
         sessionStorage.setItem('userId', userId);
         this.loginservice.login();
         switch (res.role) {
           case 'STUDENT':
             this.router.navigate(['/home']);
+            this.getStudentName();
             break;
           case 'TEACHER':
             this.router.navigate(['/home']);
+            this.getTeacherName();
             break;
           case 'ADMIN':
             this.router.navigate(['/admin']);
@@ -60,6 +64,30 @@ export class LoginComponent implements OnInit{
         console.log(error);
       }
     });
+  }
+
+  getStudentName(){
+    const userId = this.loginForm.value.userId;
+    this.restApiService.getStudentById(userId).subscribe({
+      next:(res:any)=>{
+        sessionStorage.setItem('userName', res.firstName);
+      },
+      error:(error:any)=>{
+        console.log(error.error);
+      }
+    });
+  }
+
+  getTeacherName(){
+    const userId = this.loginForm.value.userId;
+    this.restApiService.getTeacherById(userId).subscribe({
+      next:(res:any)=>{
+        sessionStorage.setItem('userName', res.firstName);
+      },
+      error:(error:any)=>{
+        console.log(error.error);
+      }
+    })
   }
 
   goToRegistration() {
