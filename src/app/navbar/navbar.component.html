@@ -92,7 +92,7 @@
         </mat-list-item>
         <mat-divider></mat-divider>
         <mat-list-item>
-          <button mat-button  routerLink="/view"><mat-icon>face</mat-icon>Courses</button>
+          <button mat-button  routerLink="/view-course"><mat-icon>face</mat-icon>Courses</button>
 
         </mat-list-item>
         <mat-divider></mat-divider>
@@ -156,7 +156,7 @@
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>face</mat-icon>Courses</button>
                 <mat-menu #menu="matMenu">
                    <button mat-menu-item routerLink="/course">Create Course</button>
-                    <button mat-menu-item routerLink="/view">View Course</button>
+                    <button mat-menu-item routerLink="/view-course">View Course</button>
                 </mat-menu>
         </mat-list-item>
         <mat-divider></mat-divider>
@@ -247,7 +247,7 @@
 
         <mat-list-item>
           <button mat-button [matMenuTriggerFor]="menu"><mat-icon>book</mat-icon>Courses</button>
-                <mat-menu #menu="matMenu">
+                <mat-menu #menu="matMenu">  
                     <button mat-menu-item routerLink="/course" >Create<mat-icon>add</mat-icon></button>
                     <button mat-menu-item routerLink="/view-course">View<mat-icon>visibility</mat-icon></button>
                     <!-- <button mat-menu-item routerLink="/edit">Edit<mat-icon>edit</mat-icon></button> -->

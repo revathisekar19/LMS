@@ -16,9 +16,12 @@ export interface Course{
   styleUrl: './view-course.component.css'
 })
 export class ViewCourseComponent implements OnInit{
+  userRole: string;
 
   constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
-    private dialog: MatDialog){}
+    private dialog: MatDialog){
+      this.userRole = sessionStorage.getItem('userRole') || '';
+    }
 
   ngOnInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -84,6 +87,9 @@ export class ViewCourseComponent implements OnInit{
         },
       });
     }
+  }
+  enroll(course: Course):void{
+    console.log(course)
   }
 
   closeDialog(): void {

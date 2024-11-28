@@ -31,7 +31,12 @@
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef> Actions </th>
           <td mat-cell *matCellDef="let course">
+            <div *ngIf="userRole === 'TEACHER'">
             <button mat-button color="primary" (click)="editCourse(course)">Edit</button>
+          </div>
+          <div *ngIf="userRole === 'STUDENT'">
+            <button mat-button color="primary" (click)="enroll(course)">Enroll</button>
+          </div>
             <!-- <button mat-button color="warn" (click)="deleteTeacher(teacher.id)">Delete</button> -->
           </td>
         </ng-container>
