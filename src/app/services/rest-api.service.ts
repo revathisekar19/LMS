@@ -202,4 +202,24 @@ private baseUrl = 'http://localhost:8085/learnlo/api/v1';
         });
     return this.http.put(`${this.studentUrl}/${studentId}`,data,{headers});
   }
+
+  enrollStudent(course: any): Observable<any> {
+    // Log the course object
+    console.log('Course object in enrollStudent:', course);
+    const authHeader = 'Basic ' + btoa(`${sessionStorage.getItem('userId')}:${sessionStorage.getItem('userId')}`);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': authHeader
+    });
+
+    
+    const requestObject = {
+      studentId: sessionStorage.getItem('userId'),
+      teacherCourseId: course.teacherCourseId,
+      studentCourseId: sessionStorage.getItem('userId')+"X"+course.teacherCourseId
+    }
+    
+    // Assuming the backend expects the course object in the request body
+    return this.http.post("http://localhost:8085/learnlo/api/v1/enrollment", requestObject, { headers });
+  }
 }

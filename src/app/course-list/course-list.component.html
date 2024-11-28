@@ -31,6 +31,14 @@
           <th mat-header-cell *matHeaderCellDef> Days & Time </th>
           <td mat-cell *matCellDef="let course"> {{ course.daysAndTime }} </td>
         </ng-container>
+
+            <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let course">
+        <button mat-button (click)="enroll(course)">Enroll</button>
+      </td>
+    </ng-container>
     
         <!-- Header Row -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
