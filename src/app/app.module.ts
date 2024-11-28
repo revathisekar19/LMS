@@ -42,6 +42,7 @@ import { ViewTeacherComponent } from './admin-components/teacher-component/view-
 import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
 import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
 import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
+import { CourseListComponent } from './course-list/course-list.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { ViewCourseComponent } from './admin-components/course-component/view-co
    EditTeacherComponent,
    EditStudentComponent,
    ViewCourseComponent,
+   CourseListComponent,
    
     ],
   imports: [

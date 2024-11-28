@@ -2,7 +2,7 @@ import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { RestApiService } from '../../../services/rest-api.service';
 import { Route, Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 export interface Course{
@@ -17,10 +17,14 @@ export interface Course{
 })
 export class ViewCourseComponent implements OnInit{
 
+  assignForm!: FormGroup;
+  selectedCourse: any;
+
   constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
     private dialog: MatDialog){}
 
   ngOnInit(): void {
+    
     this.dataSource.paginator = this.paginator;
     this.initializeForm();
     this.viewCourse();
@@ -36,6 +40,8 @@ export class ViewCourseComponent implements OnInit{
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild('editCourseForm') editCourseFormTemplate!: TemplateRef<any>;
+  @ViewChild('assignTeacherForm') assignTeacherForm!: TemplateRef<any>;
+
   editForm!: FormGroup;
   dialogRef: any;
   
@@ -49,6 +55,12 @@ export class ViewCourseComponent implements OnInit{
       name: [''],
       description: [''],
      
+    });
+    this.assignForm = this.fb.group({
+      teacherId: ['', Validators.required],
+      venue: ['', Validators.required],
+      mode: ['', Validators.required],
+      daysAndTime: ['', Validators.required],
     });
   }
 
@@ -90,5 +102,38 @@ export class ViewCourseComponent implements OnInit{
     if (this.dialogRef) {
       this.dialogRef.close();
     }
+    if(this.dialog){
+      this.dialog.closeAll();
+    }
+  }
+
+  openAssignDialog(course: any): void {
+    this.selectedCourse = course;
+    this.dialog.open(this.assignTeacherForm);
+  }
+  generateTeacherCourseId(): string {
+    return `${this.assignForm.value.teacherId || ''}X${this.selectedCourse?.code || ''}`;
+  }
+
+  assignTeacher(): void{
+
+    const payload = {
+      teacherCourseId: this.generateTeacherCourseId(),
+      teacherId: this.assignForm.value.teacherId,
+      courseCode: this.selectedCourse.code,
+      venue: this.assignForm.value.venue,
+      mode: this.assignForm.value.mode,
+      daysAndTime: this.assignForm.value.daysAndTime,
+    };
+     this.restApiService.assignTeacher(payload).subscribe({
+      next: (response) => {
+        console.log('Teacher assigned successfully:', response);
+        this.closeDialog();
+      },
+      error: (error) => {
+        console.error('Error assining teacher:', error.error);
+      },
+
+     });
   }
 }

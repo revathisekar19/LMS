@@ -68,6 +68,16 @@ private baseUrl = 'http://localhost:8085/learnlo/api/v1';
     return this.http.post('http://localhost:8085/learnlo/api/v1/user',data,{headers});
   }
 
+  //create teacher course api
+  assignTeacher(data:any):Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.post(`${this.baseUrl}/teacher-course`,data,{headers});
+  }
+
   //view api
 
   //get All Course API
@@ -98,6 +108,16 @@ private baseUrl = 'http://localhost:8085/learnlo/api/v1';
             Authorization: authHeader
         });
     return this.http.get('http://localhost:8085/learnlo/api/v1/student',{headers});
+  }
+
+  //get course teacher api
+  getCourseTeacher() : Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.get(`${this.baseUrl}/teacher-course`,{headers});
   }
   
 
