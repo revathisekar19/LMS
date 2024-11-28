@@ -230,7 +230,7 @@
               <button mat-menu-item routerLink="/create-teacher">Create<mat-icon>add</mat-icon></button>
               <button mat-menu-item routerLink="/view-teacher">View<mat-icon>visibility</mat-icon></button>
               <!-- <button mat-menu-item routerLink="/edit-teacher">Edit<mat-icon>edit</mat-icon></button> -->
-              <button mat-menu-item routerLink="/delete-teacher">Delete<mat-icon>delete</mat-icon></button>
+              <!-- <button mat-menu-item routerLink="/delete-teacher">Delete<mat-icon>delete</mat-icon></button> -->
             </mat-menu>
         
             <!-- Student Menu -->
@@ -239,7 +239,7 @@
               <button mat-menu-item routerLink="/create-student" >Create<mat-icon>add</mat-icon></button>
               <button mat-menu-item routerLink="/view-student">View<mat-icon>visibility</mat-icon></button>
               <!-- <button mat-menu-item routerLink="/edit-student">Edit<mat-icon>edit</mat-icon></button> -->
-              <button mat-menu-item routerLink="/delete-student">Delete<mat-icon>delete</mat-icon></button>
+              <!-- <button mat-menu-item routerLink="/delete-student">Delete<mat-icon>delete</mat-icon></button> -->
             </mat-menu>
           </mat-menu>
         </mat-list-item>
@@ -251,18 +251,25 @@
                     <button mat-menu-item routerLink="/course" >Create<mat-icon>add</mat-icon></button>
                     <button mat-menu-item routerLink="/view-course">View<mat-icon>visibility</mat-icon></button>
                     <!-- <button mat-menu-item routerLink="/edit">Edit<mat-icon>edit</mat-icon></button> -->
-                    <button mat-menu-item routerLink="/student/delete">Delete<mat-icon>delete</mat-icon></button>
+                    <!-- <button mat-menu-item routerLink="/student/delete">Delete<mat-icon>delete</mat-icon></button> -->
                 </mat-menu>
         </mat-list-item>
         <mat-divider></mat-divider>
 
-        <mat-list-item routerLink="/profile" >
-          <button mat-button>
-            <mat-icon>settings</mat-icon>
-            Profile
+        <mat-list-item>
+          <button mat-button [matMenuTriggerFor]="roleMenu">
+            <mat-icon>badge</mat-icon>Role
           </button>
+          <mat-menu #roleMenu="matMenu">
+            <button mat-menu-item routerLink="/create-role">
+              Create<mat-icon>add</mat-icon>
+            </button>
+            <button mat-menu-item routerLink="/view-role">
+              View<mat-icon>visibility</mat-icon>
+            </button>
+          </mat-menu>
         </mat-list-item>
-        <mat-divider></mat-divider> 
+        <mat-divider></mat-divider>
         
       </mat-nav-list>
     </mat-drawer>

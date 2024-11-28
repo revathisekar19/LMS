@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit{
             this.router.navigate(['/navbar']);
             break;
           case 'ADMIN':
-            this.router.navigate(['/navbar']);
+            this.router.navigate(['/admin']);
             break;
           default:
             alert('Unknown role. Please contact support.');

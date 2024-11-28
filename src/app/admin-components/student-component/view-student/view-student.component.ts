@@ -34,8 +34,10 @@ export class ViewStudentComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator !: MatPaginator;
   @ViewChild('editStudentForm') editStudentFormTemplate!: TemplateRef<any>;
+  @ViewChild('assignFormTemplate') assignFormTemplate!: TemplateRef<any>;
 
   editForm!: FormGroup;
+  assignForm!: FormGroup;
   dialogRef: any;
   
   constructor(private router : Router,private restApiService : RestApiService,  private fb: FormBuilder,
@@ -60,6 +62,11 @@ export class ViewStudentComponent implements OnInit {
       email: [''],
       phoneNumber: [''],
     });
+    this.assignForm = this.fb.group({
+      userId: [''],
+      password: [''],
+      role: [''],
+    });
   }
 
   viewStudent():void{
@@ -76,15 +83,12 @@ export class ViewStudentComponent implements OnInit {
 
   editStudent(student: Student): void {
     this.editForm.patchValue(student);
-     this.dialogRef = this.dialog.open(this.editStudentFormTemplate, {
-      width: '600px',
-    });
+     this.dialogRef = this.dialog.open(this.editStudentFormTemplate, { width: '600px'});
   }
 
   saveTeacher(): void {
     if (this.editForm.valid) {
       const updatedStudent = this.editForm.value;
-      console.log("ut",updatedStudent);
       this.restApiService.updateStudent(updatedStudent.studentId, updatedStudent).subscribe({
         next: (response) => {
           console.log('Student updated successfully:', response);
@@ -97,10 +101,40 @@ export class ViewStudentComponent implements OnInit {
     }
   }
 
+  openAssignDialog(student: any) {
+    this.assignForm.patchValue({
+      userId: student.studentId,
+      password: '',
+      role: '',
+    });
+
+    this.dialog.open(this.assignFormTemplate, {width: '400px',data: student});
+  }
+
+  assignRole(){
+    if(this.assignForm.valid){
+    const formData = this.assignForm.value;
+    this.restApiService.createRole(formData).subscribe({
+      next: (response) => {
+        console.log('Role:', response);
+        this.closeDialog();
+      },
+      error: (error) => {
+        console.error('Role Error:', error.error);
+      },
+
+    });
+  }}
+
   closeDialog(): void {
     if (this.dialogRef) {
       this.dialogRef.close();
     }
+    if(this.dialog){
+      this.dialog.closeAll();
+    }
   }
+
+
 
 }

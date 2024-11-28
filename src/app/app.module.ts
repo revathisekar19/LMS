@@ -40,9 +40,9 @@ import { CreateStudentComponent } from './admin-components/student-component/cre
 import { ViewStudentComponent } from './admin-components/student-component/view-student/view-student.component';
 import { ViewTeacherComponent } from './admin-components/teacher-component/view-teacher/view-teacher.component';
 import { EditTeacherComponent } from './admin-components/teacher-component/edit-teacher/edit-teacher.component';
-import { ViewcourseComponent } from './viewcourse/viewcourse.component';
 import { EditStudentComponent } from './admin-components/student-component/edit-student/edit-student.component';
 import { ViewCourseComponent } from './admin-components/course-component/view-course/view-course.component';
+
 
 @NgModule({
   declarations: [
@@ -63,9 +63,9 @@ import { ViewCourseComponent } from './admin-components/course-component/view-co
    ViewStudentComponent,
    ViewTeacherComponent,
    EditTeacherComponent,
-   ViewcourseComponent,
    EditStudentComponent,
-   ViewCourseComponent
+   ViewCourseComponent,
+   
     ],
   imports: [
     BrowserModule,

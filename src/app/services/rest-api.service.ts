@@ -88,6 +88,16 @@ password = 'password1';
     return this.http.post('http://localhost:8085/learnlo/api/v1/student',data,{headers});
   }
 
+  //role & password creation api
+  createRole(data : any): Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.post('http://localhost:8085/learnlo/api/v1/user',data,{headers});
+  }
+
   //view api
 
   //get All Course API
