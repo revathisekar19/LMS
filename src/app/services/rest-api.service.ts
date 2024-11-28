@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 export class RestApiService {
 username = 'mfernando';
 password = 'password1';
+private baseUrl = 'http://localhost:8085/learnlo/api/v1';
   private studentUrl = 'http://localhost:8085/learnlo/api/v1/student';
   private teacherUrl = 'http://localhost:8085/learnlo/api/v1/teacher';
-  private coutseUrl  = 'http://localhost:8085/learnlo/api/v1/course';
+  private courseUrl  = 'http://localhost:8085/learnlo/api/v1/course';
   private userUrl = 'http://localhost:8085/learnlo/api/v1/user';
 
   constructor(private http : HttpClient) { }
@@ -132,6 +133,25 @@ password = 'password1';
     return this.http.get(`${this.teacherUrl}/${courseId}`,{headers});
   }
 
+  //get course by teacher id api
+  getCoursesByTeacherId(teacherId: string): Observable<any> {
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.get(`${this.baseUrl}/teacher-course?teacherId=${teacherId}`,{headers});
+  }
+
+  //get course by student id api
+  getStudentCourse(teachercourseId:string) : Observable<any>{
+    const authHeader = 'Basic ' + btoa(`${this.username}:${this.password}`);
+    const headers = new HttpHeaders({
+           'Content-Type': 'application/json',
+            Authorization: authHeader
+        });
+    return this.http.get(`http://localhost:8085/learnlo/api/v1/enrollment?teacherCourseId=${teachercourseId}`,{headers})
+  }
   //update api
 
   //update teacher api
@@ -151,7 +171,7 @@ password = 'password1';
            'Content-Type': 'application/json',
             Authorization: authHeader
         });
-    return this.http.put(`${this.coutseUrl}/${courseId}`,data,{headers});
+    return this.http.put(`${this.courseUrl}/${courseId}`,data,{headers});
   }
   //update student api
   updateStudent(studentId: any,data:any): Observable<any> {

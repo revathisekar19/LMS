@@ -39,15 +39,15 @@ export class LoginComponent implements OnInit{
     const userId = this.loginForm.value.userId;
     this.restApiService.login(userId).subscribe({
       next:(res:any)=>{
-        console.log(res);
         sessionStorage.setItem('userRole', res.role);
+        sessionStorage.setItem('userId', userId);
         this.loginservice.login();
         switch (res.role) {
           case 'STUDENT':
-            this.router.navigate(['/navbar']);
+            this.router.navigate(['/home']);
             break;
           case 'TEACHER':
-            this.router.navigate(['/navbar']);
+            this.router.navigate(['/home']);
             break;
           case 'ADMIN':
             this.router.navigate(['/admin']);

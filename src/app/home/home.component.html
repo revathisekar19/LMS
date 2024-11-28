@@ -41,7 +41,7 @@
 </div>
 
 <div *ngIf="userRole === 'TEACHER'">
-  <div class="cards">
+  <!-- <div class="cards">
     <mat-card class="example-card" [routerLink]="['/']">
 
         <div style="background-color:#51AF9D;" class="courseone">
@@ -79,49 +79,92 @@
      </mat-card>
         
         
+</div> -->
+
+<h2>Assigned Courses</h2>
+<div class="courses-container">
+  <mat-card *ngFor="let course of courses" class="course-card">
+    <mat-card-header>
+      <mat-card-title>Course Code: {{ course.courseCode }}</mat-card-title>
+      <mat-card-subtitle>Venue: {{ course.venue }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>Venue:</strong> {{ course.venue }}</p>
+      <p><strong>Mode:</strong> {{ course.mode }}</p>
+      <p><strong>Days & Time:</strong> {{ course.daysAndTime }}</p>
+    </mat-card-content>
+    <mat-divider></mat-divider>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="viewCourseDetails(course)">View Details</button>
+    </mat-card-actions>
+  </mat-card>
 </div>
 
+
 </div>
 
 
-<div *ngIf="userRole === 'ADMIN'">
-  <div class="cards">
-    <mat-card class="example-card" [routerLink]="['/']">
-
-        <div style="background-color:#51AF9D;" class="courseone">
-     
-        </div>
-         <mat-card-content>
-           <p>
-             Foundations of Software Engineering
-           </p>
-         </mat-card-content>
-     </mat-card>
-     
-     <mat-card class="example-card" [routerLink]="['/']">
-     
-         <div style="background-color: #6279BF;" class="courseone">
-      
-         </div>
-          <mat-card-content>
-            <p>
-              Project Management for Software Engineering
-            </p>
-          </mat-card-content>
-     </mat-card>
-     
-     <mat-card class="example-card" [routerLink]="['/']">
-     
-         <div style="background-color: #ED9DC0;" class="courseone">
-      
-         </div>
-          <mat-card-content>
-            <p>
-              Software Dev Methods and Tools
-            </p>
-          </mat-card-content>
-     </mat-card>
-        
-        
+<div *ngIf="enrollmentDetails">
+  <h2>Enrollment Details</h2>
+  <table mat-table [dataSource]="enrollmentDetails" class="mat-elevation-z8">
+    
+    <!-- Student Course ID Column -->
+    <ng-container matColumnDef="studentCourseId">
+      <th mat-header-cell *matHeaderCellDef> Student Course ID </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.studentCourseId }} </td>
+    </ng-container>
+    
+    <!-- Student ID Column -->
+    <ng-container matColumnDef="studentId">
+      <th mat-header-cell *matHeaderCellDef> Student ID </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.studentId }} </td>
+    </ng-container>
+    
+    <!-- Teacher Course ID Column -->
+    <ng-container matColumnDef="teacherCourseId">
+      <th mat-header-cell *matHeaderCellDef> Teacher Course ID </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.teacherCourseId }} </td>
+    </ng-container>
+    
+    <!-- Teacher ID Column -->
+    <ng-container matColumnDef="teacherId">
+      <th mat-header-cell *matHeaderCellDef> Teacher ID </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.teacherId }} </td>
+    </ng-container>
+    
+    <!-- Course Code Column -->
+    <ng-container matColumnDef="courseCode">
+      <th mat-header-cell *matHeaderCellDef> Course Code </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.courseCode }} </td>
+    </ng-container>
+    
+    <!-- Venue Column -->
+    <ng-container matColumnDef="venue">
+      <th mat-header-cell *matHeaderCellDef> Venue </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.venue }} </td>
+    </ng-container>
+    
+    <!-- Mode Column -->
+    <ng-container matColumnDef="mode">
+      <th mat-header-cell *matHeaderCellDef> Mode </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.mode }} </td>
+    </ng-container>
+    
+    <!-- Days and Time Column -->
+    <ng-container matColumnDef="daysAndTime">
+      <th mat-header-cell *matHeaderCellDef> Days & Time </th>
+      <td mat-cell *matCellDef="let enrollment"> {{ enrollment.daysAndTime }} </td>
+    </ng-container>
+    
+    <!-- Header Row -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    
+    <!-- Data Rows -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
+
+<!-- No Data Message -->
+<div *ngIf !="enrollmentDetails">
+  <p>No enrollment details available.</p>
 </div>

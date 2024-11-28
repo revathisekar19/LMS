@@ -1,19 +1,63 @@
-.example-card {
-    max-width: 300px;
-    max-height: 500px;
-    margin: 30px 20px 20px 30px;
-    border-radius: 15px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+/* Container for cards */
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center; /* Center-align the cards */
+  padding: 16px; /* Add some padding around the container */
+  background-color: #f5f5f5; /* Light background to make cards pop */
+}
 
-  }
-  
-.courseone {
-    height: 150px;
-} 
-  
-.cards {
-    display: flex;
-    justify-content: flex-start;
-    gap: 20px; 
-    flex-wrap: wrap; 
-  }
+/* Individual card styles */
+.course-card {
+  width: 320px;
+  padding: 16px;
+  border-radius: 16px; /* More rounded corners for modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  transition: transform 0.2s, box-shadow 0.2s;
+  background: linear-gradient(to top right, #ffffff, #f9fbfc); /* Subtle gradient background */
+  border: 1px solid #e0e0e0; /* Light border for structure */
+}
+
+/* Hover effect for cards */
+.course-card:hover {
+  transform: translateY(-5px); /* Lift the card slightly */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a deeper shadow */
+  background: linear-gradient(to top right, #f7faff, #e3f2fd); /* Highlighted gradient */
+
+}
+
+/* Card header styles */
+mat-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333; /* Darker text for better contrast */
+}
+
+mat-card-subtitle {
+  font-size: 1rem;
+  color: #777; /* Subtle subtitle color */
+}
+
+/* Card content styles */
+mat-card-content p {
+  font-size: 0.95rem;
+  color: #555; /* Medium text color */
+  margin: 8px 0;
+}
+
+/* Divider between content and actions */
+mat-divider {
+  margin: 16px 0;
+}
+
+/* Card actions */
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+}
+
+mat-card-actions button {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
