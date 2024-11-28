@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
     });
   }
   ngOnInit(): void {
-    this.onSubmit();
+    // this.onSubmit();
   }
 
   togglePasswordVisibility() {
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit{
     this.restApiService.login(userId).subscribe({
       next:(res:any)=>{
         console.log(res);
-        sessionStorage.setItem('userRole', res.role);
+        sessionStorage.setItem('userRole', res.role || 'STUDENT');
         this.loginservice.login();
         switch (res.role) {
           case 'STUDENT':
