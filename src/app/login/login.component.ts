@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit{
           role = null;
         }
         sessionStorage.setItem('userRole', role);
-        this.loginservice.login();
-        switch (res.role) {
+        if(role != null)this.loginservice.login();
+        switch (role) {
           case 'STUDENT':
             this.router.navigate(['/navbar']);
             break;
